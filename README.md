@@ -1,4 +1,4 @@
-# FYP_System
+# Final Year Project System
 **An assignment for the module Data Structures and Algorithm in Singapore Polytechnic**
 
 -- Project Member: Philip Leong Jun Hwa, Zion Jiam Tzi Yang
