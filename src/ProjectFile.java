@@ -12,8 +12,7 @@ import javax.swing.JOptionPane;
 public class ProjectFile {
 
     public static Project[] extractProjectDataFromFile() {
-        // ***Change desired file path 
-        //String filePath = "C:/Modules files/Year 2/Data Structure And Algorithm/projects.txt";
+      
         String filePath = "C:/Users/2014p/Desktop/P1829121_P1829332/projects.txt";
         String val;
         BufferedReader br;
@@ -97,8 +96,7 @@ public class ProjectFile {
     }
 
     public static void printDesiredOutput(String[] desiredOutput) {
-        // Change desired file path 
-        //String filePath = "C:/Modules files/Year 2/Data Structure And Algorithm/output.txt"
+
         String filePath = "C:/Users/2014p/Desktop/P1829121_P1829332/output.txt";
         PrintWriter printWriter;
 
