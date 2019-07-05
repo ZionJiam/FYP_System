@@ -1,24 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import java.util.ArrayList;
+import java.util.List;
 
-/**
- *
- * @author 2014p
- */
-public class Project extends Student {
-
+public class Project{
+    
+    private Student[]student;
     private String title, school, supervisor;
 
-    public Project(String title, String school, String supervisor, 
-            String adminNum, String name, String course, char gender) {
+    public Project(Student[]student, String title, String school, String supervisor) {        
         
-        super(adminNum, name, course, gender);
+        this.student = student;
         this.title = title;
         this.school = school;
         this.supervisor = supervisor;
+    }
+    
+    public Student[] getStudent(){
+        return student;
     }
 
     public void setTitle(String title) {
