@@ -311,9 +311,9 @@ public class ProjectFrame extends javax.swing.JFrame {
         projectComboBox.removeAllItems();
 
         for (int i = 0; i < projectList.size(); i++) {
-            if (!newList.contains(projectList.get(i).title)) {
-                newList.add(projectList.get(i).title);
-                projectComboBox.addItem(projectList.get(i).title);
+            if (!newList.contains(projectList.get(i).getTitle())) {
+                newList.add(projectList.get(i).getTitle());
+                projectComboBox.addItem(projectList.get(i).getTitle());
             }
         }
 
@@ -331,32 +331,32 @@ public class ProjectFrame extends javax.swing.JFrame {
         boolean change = false; //Boolean to properly format names of student
         //Set labels for project name, school and supervisor
         for (Project x : students) {
-            if (x.title.equals(project) && change == false) {
-                titleLabel.setText(x.title);
-                schoolLabel.setText(x.school);
-                supervisorLabel.setText(x.supervisor);
+            if (x.getTitle().equals(project) && change == false) {
+                titleLabel.setText(x.getTitle());
+                schoolLabel.setText(x.getSchool());
+                supervisorLabel.setText(x.getSupervisor());
                 change = true;
                 //set textbox for students information
                 studInfo += x.displayStudentInfo();
 
-            } else if (x.title.equals(project) && change == true) {
+            } else if (x.getTitle().equals(project) && change == true) {
                 studInfo += x.displayStudentInfo();
             }
             //Count to switch img labels
             int count = 1;
             for (int i = 0; i < students.length; i++) {
-                if (students[i].title.equals(project)) {
+                if (students[i].getTitle().equals(project)) {
                     switch (count) {
                         case 1:
-                            img1.setIcon(getIcon(students[i].adminNum));
+                            img1.setIcon(getIcon(students[i].getadminNum()));
                             count++;
                             break;
                         case 2:
-                            img2.setIcon(getIcon(students[i].adminNum));
+                            img2.setIcon(getIcon(students[i].getadminNum()));
                             count++;
                             break;
                         case 3:
-                            img3.setIcon(getIcon(students[i].adminNum));
+                            img3.setIcon(getIcon(students[i].getadminNum()));
                             count++;
                             break;
                     }
@@ -424,9 +424,9 @@ public class ProjectFrame extends javax.swing.JFrame {
         List<String> newList = new ArrayList<>();
 
         for (Project allStudent : allStudents) {
-            if (!newList.contains(allStudent.title)) {
-                newList.add(allStudent.title);
-                projectComboBox.addItem(allStudent.title);
+            if (!newList.contains(allStudent.getTitle())) {
+                newList.add(allStudent.getTitle());
+                projectComboBox.addItem(allStudent.getTitle());
             }
             //Make combo box empty
             projectComboBox.setSelectedIndex(-1);
@@ -439,9 +439,9 @@ public class ProjectFrame extends javax.swing.JFrame {
         List<String> newList = new ArrayList<>();
 
         for (Project allStudent : allStudents) {
-            if (!newList.contains(allStudent.school)) {
-                newList.add(allStudent.school);
-                schoolComboBox.addItem(allStudent.school);
+            if (!newList.contains(allStudent.getSchool())) {
+                newList.add(allStudent.getSchool());
+                schoolComboBox.addItem(allStudent.getSchool());
             }
         }
     }

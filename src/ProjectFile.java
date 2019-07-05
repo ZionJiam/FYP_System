@@ -12,8 +12,8 @@ import javax.swing.JOptionPane;
 public class ProjectFile {
 
     public static Project[] extractProjectDataFromFile() {
-      
-        String filePath = "C:/Users/2014p/Desktop/P1829121_P1829332/projects.txt";
+        // Phliip: C:/Users/2014p/Documents/GitHub/FYP_System/projects.txt
+        String filePath = "C:/Users/2014p/Documents/GitHub/FYP_System/projects.txt";
         String val;
         BufferedReader br;
         List<String> projectData = new ArrayList<>();
@@ -22,6 +22,7 @@ public class ProjectFile {
             br = new BufferedReader(new FileReader(filePath));
             val = br.readLine();
             while ((val = br.readLine()) != null) {
+                System.out.println(val);
                 projectData.add(val);
             }
             br.close();
@@ -48,6 +49,7 @@ public class ProjectFile {
         // Get sum of all student working on the project 
         // to determine number of studentProject object needed
         for (int i = 0; i < projectData.size(); i++) {
+            System.out.println(sumOfStudent);
             sumOfStudent += Integer.parseInt(projectData.get(i).get(3));
         }
 
@@ -84,11 +86,11 @@ public class ProjectFile {
         boolean change = false; //Boolean to properly format names of student
 
         for (Project x : projectList) {
-            if (x.title.equals(project) && change == false) {
-                output = x.title + "\n" + x.school + "\n" + x.supervisor + "\n" + x.name;
+            if (x.getTitle().equals(project) && change == false) {
+                output = x.getTitle() + "\n" + x.getSchool() + "\n" + x.getSupervisor() + "\n" + x.getName();
                 change = true;
-            } else if (x.title.equals(project) && change == true) {
-                output += " ==> " + x.name;
+            } else if (x.getTitle().equals(project) && change == true) {
+                output += " ==> " + x.getName();
             }
         }
 
@@ -96,8 +98,8 @@ public class ProjectFile {
     }
 
     public static void printDesiredOutput(String[] desiredOutput) {
-
-        String filePath = "C:/Users/2014p/Desktop/P1829121_P1829332/output.txt";
+        //Philip： C:/Users/2014p/Documents/GitHub/FYP_System/output.txt
+        String filePath = "C:/Users/2014p/Documents/GitHub/FYP_System/output.txt";
         PrintWriter printWriter;
 
         try {

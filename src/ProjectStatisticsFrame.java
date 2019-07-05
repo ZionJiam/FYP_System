@@ -127,7 +127,7 @@ public class ProjectStatisticsFrame extends javax.swing.JFrame {
         // Count number of student
         for (int k = 0; k < schoolList.size(); k++) {
             for (int i = 0; i < allStudents.length; i++) {
-                if (allStudents[i].school.equals(schoolList.get(k))) {
+                if (allStudents[i].getSchool().equals(schoolList.get(k))) {
                     countStudent[k] += 1;
                 } //if
             } //for
@@ -136,10 +136,10 @@ public class ProjectStatisticsFrame extends javax.swing.JFrame {
         //Count number of project
         for (int k = 0; k < schoolList.size(); k++) {
             for (int i = 0; i < allStudents.length - 1; i++) {
-                if (allStudents[i].school.equals(schoolList.get(k))) {
-                    String projName = allStudents[i].title;
-                    String nextproj = allStudents[i + 1].title;
-                    if (!(projName.equals(nextproj) && allStudents[i].school.equals(allStudents[i + 1].school))) {
+                if (allStudents[i].getSchool().equals(schoolList.get(k))) {
+                    String projName = allStudents[i].getTitle();
+                    String nextproj = allStudents[i + 1].getTitle();
+                    if (!(projName.equals(nextproj) && allStudents[i].getSchool().equals(allStudents[i + 1].getSchool()))) {
                         if (!(projName.equals(nextproj)) && i == allStudents.length - 2) {
                             countProject[schoolList.size() - 1] += 1;
                         } //if

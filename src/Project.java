@@ -10,7 +10,7 @@
  */
 public class Project extends Student {
 
-    protected String title, school, supervisor;
+    private String title, school, supervisor;
 
     public Project(String title, String school, String supervisor, 
             String adminNum, String name, String course, char gender) {

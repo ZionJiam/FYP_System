@@ -10,9 +10,9 @@
  */
 public class Student {
 
-    protected String name, course;
-    protected char gender;
-    protected String adminNum;
+    private String name, course;
+    private char gender;
+    private String adminNum;
 
     public Student(String adminNum, String name, String course, char gender) {
         this.adminNum = adminNum;
