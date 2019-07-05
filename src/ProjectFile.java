@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 public class ProjectFile {
 
     public static Project[] extractProjectDataFromFile() {
-      
+
         String filePath = "C:/Users/2014p/Desktop/P1829121_P1829332/projects.txt";
         String val;
         BufferedReader br;
@@ -20,7 +20,6 @@ public class ProjectFile {
 
         try {
             br = new BufferedReader(new FileReader(filePath));
-            val = br.readLine();
             while ((val = br.readLine()) != null) {
                 projectData.add(val);
             }
@@ -36,46 +35,43 @@ public class ProjectFile {
     }
 
     public static Project[] createProjectObject(List<String> data) {
-        //Declare
-        int sumOfStudent = 0, numOfStud;
+
+        Project[] project = new Project[Integer.parseInt(data.get(0))];
         List<List<String>> projectData = new ArrayList<>();
 
         // Split element of array to become 2D Array
-        for (int i = 0; i < data.size(); i++) {
+        for (int i = 1; i < data.size(); i++) {
             projectData.add(Arrays.asList(data.get(i).split(",")));
         }
+        //New
+            for (int i = 0; i < projectData.size(); i++) {
 
-        // Get sum of all student working on the project 
-        // to determine number of studentProject object needed
-        for (int i = 0; i < projectData.size(); i++) {
-            sumOfStudent += Integer.parseInt(projectData.get(i).get(3));
-        }
+                String title = projectData.get(i).get(0), school = projectData.get(i).get(1), supervisor = projectData.get(i).get(2);
+                int numOfStud = Integer.parseInt(projectData.get(i).get(3)); //Get number of student in a project group
+                Student[] students = new Student[numOfStud];
+                int k = 0;
+                // Create array of Student object
+                for (int j = 0; j < students.length; j++) {
+                    String adminNum = projectData.get(i).get(4 + k),
+                            name = projectData.get(i).get(5 + k),
+                            course = projectData.get(i).get(6 + k);
+                    char gender = projectData.get(i).get(7 + k).charAt(0);
 
-        //Create Project Array Object
-        Project[] studentProject = new Project[sumOfStudent];
-
-        // for loop to reference object >> int sum
-        for (int i = 0; i < sumOfStudent; i++) {
-            // for loop to extract data Project
-            for (int x = 0; x < projectData.size(); x++) {
-                int k = 0; //Reset K value
-                numOfStud = Integer.parseInt(projectData.get(x).get(3)); //Get number of student in a project group
-                // Loop the number of student in each project 
-                while (numOfStud > 0) {
-                    String title = projectData.get(x).get(0), school = projectData.get(x).get(1), supervisor = projectData.get(x).get(2), adminNum = projectData.get(x).get(4 + k), name = projectData.get(x).get(5 + k), course = projectData.get(x).get(6 + k);
-                    char gender = (projectData.get(x).get(7 + k).charAt(0));
-                    // Initialize studentProject
-                    studentProject[i] = new Project(title, school, supervisor, adminNum, name, course, gender);
-
+                    students[j] = new Student(adminNum, name, course, gender);
                     k += 4;
-                    i += 1;
-                    numOfStud--;
-
-                } //while
-            } // for
-        } //for
-
-        return studentProject;
+                }
+                System.out.println(supervisor +  "<<");
+                project[i] = new Project(students, title, school, supervisor);
+            }
+     
+        
+        for(Project ject: project){
+             for(Student stud:  ject.getStudent()){
+                 System.out.println(stud.getName() + " Supervisor: " + ject.getSupervisor());
+             }
+        }
+        
+        return project;
     }
 
     //Get String output to be used for printing to output.txt
