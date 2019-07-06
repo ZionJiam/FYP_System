@@ -31,7 +31,6 @@ public class ProjectFile {
                     "Text file may not exist! Please check file path again", "ERROR",
                     JOptionPane.ERROR_MESSAGE); //Successful Message when printed
         }
-        Project[] temp =  createProjectObject(projectData);
         
         return createProjectObject(projectData);
     }
@@ -62,17 +61,10 @@ public class ProjectFile {
                     students[j] = new Student(adminNum, name, course, gender);
                     k += 4;
                 }
-//                System.out.println(supervisor +  "<<");
                 project[i] = new Project(students, title, school, supervisor);
                 output.addProject(project[i]);
             }
-     
-        
-//        for(Project ject: project){
-//             for(Student stud:  ject.getStudent()){
-//                 System.out.println(stud.getName() + " Supervisor: " + ject.getSupervisor());
-//             }
-//        }
+    
         return output;
     }
 
