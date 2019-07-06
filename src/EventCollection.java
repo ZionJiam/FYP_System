@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+  import java.io.*;
 /**
  *
  * @author 2014p
  */
-public class EventCollection {
+public class EventCollection implements Serializable{
     private int currEvent;
     private LinkList eventList;
     public EventCollection(){
