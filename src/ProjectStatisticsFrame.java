@@ -107,13 +107,14 @@ public class ProjectStatisticsFrame extends javax.swing.JFrame {
 
     public static String outputProjectStatistics() {
 
-        Project[] allStudents = ProjectFile.extractProjectDataFromFile();
+        ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
         Set<String> schoolSet = new LinkedHashSet<>();
         List<String> schoolList = new ArrayList<>();
         String stats = "";
-
-        for (int i = 0; i < allStudents.length; i++) {
-            schoolList.add(allStudents[i].getSchool());
+        
+        for(int i =0; i<studentProject.getNumOfProjects();i++) {
+                Project temp = (Project) studentProject.getProject(i);
+            schoolList.add(temp.getSchool());
         }
         
         // Remove duplicate using Hashset
@@ -126,8 +127,9 @@ public class ProjectStatisticsFrame extends javax.swing.JFrame {
 
         // Count number of student
         for (int k = 0; k < schoolList.size(); k++) {
-            for (int i = 0; i < allStudents.length; i++) {
-                if (allStudents[i].getSchool().equals(schoolList.get(k))) {
+            for (int i = 0; i < studentProject.getNumOfProjects(); i++) {
+                 Project temp = (Project) studentProject.getProject(i);
+                if (temp.getSchool().equals(schoolList.get(k))) {
                     countStudent[k] += 1;
                 } //if
             } //for
@@ -135,12 +137,14 @@ public class ProjectStatisticsFrame extends javax.swing.JFrame {
         
         //Count number of project
         for (int k = 0; k < schoolList.size(); k++) {
-            for (int i = 0; i < allStudents.length - 1; i++) {
-                if (allStudents[i].getSchool().equals(schoolList.get(k))) {
-                    String projName = allStudents[i].getTitle();
-                    String nextproj = allStudents[i + 1].getTitle();
-                    if (!(projName.equals(nextproj) && allStudents[i].getSchool().equals(allStudents[i + 1].getSchool()))) {
-                        if (!(projName.equals(nextproj)) && i == allStudents.length - 2) {
+            for (int i = 0; i < studentProject.getNumOfProjects() - 1; i++) {
+                 Project temp = (Project) studentProject.getProject(i);
+                if (temp.getSchool().equals(schoolList.get(k))) {
+                    String projName = temp.getTitle();
+                    Project next = (Project) studentProject.getProject(i+1);
+                    String nextproj = next.getTitle();
+                    if (!(projName.equals(nextproj) && temp.getSchool().equals(next.getSchool()))) {
+                        if (!(projName.equals(nextproj)) && i == studentProject.getNumOfProjects() - 2) {
                             countProject[schoolList.size() - 1] += 1;
                         } //if
                         countProject[k] += 1;

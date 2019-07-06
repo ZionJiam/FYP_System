@@ -24,8 +24,8 @@ public class ProjectCollection {
         return projectList.get(num);
     }
     
-    public void addProject(Event emp){
-        projectList.addLast(emp);
+    public void addProject(Project proj){
+        projectList.addLast(proj);
     }
     
     public int getNext(){

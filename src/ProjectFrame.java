@@ -178,7 +178,6 @@ public class ProjectFrame extends javax.swing.JFrame {
         titleLabel.setFont(new java.awt.Font("Arial", 0, 21)); // NOI18N
 
         supervisorLabel.setFont(new java.awt.Font("Arial", 0, 21)); // NOI18N
-        supervisorLabel.setText("jLabel9");
 
         schoolLabel.setFont(new java.awt.Font("Arial", 0, 21)); // NOI18N
 
@@ -259,10 +258,9 @@ public class ProjectFrame extends javax.swing.JFrame {
         resetIcons();
         String info = "";
         try {
+            System.out.println("-------------------------------------Success---------------------------------");
             info = setLabels(projectComboBox.getSelectedItem().toString());
-
         } catch (NullPointerException e) {
-
         }
         studentInfo.setText(info);
     }//GEN-LAST:event_projectComboBoxActionPerformed
@@ -270,7 +268,7 @@ public class ProjectFrame extends javax.swing.JFrame {
     //Print button pressed, output file created in file directory as output.txt
     private void printButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printButtonActionPerformed
         String comboVal = "";
-        Project[] projectList = null;
+        ProjectCollection projectList = null;
         boolean hasSelected = false;
         //Validate for no selection of project from user
         if (projectComboBox.getSelectedItem() != null) {
@@ -326,42 +324,46 @@ public class ProjectFrame extends javax.swing.JFrame {
     private String setLabels(String project) {
         resetIcons();
         String studInfo = "";
-        Project[] students = ProjectFile.extractProjectDataFromFile();
-
+        ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
         boolean change = false; //Boolean to properly format names of student
         //Set labels for project name, school and supervisor
-        for (Project x : students) {
-            if (x.getTitle().equals(project) && change == false) {
-                titleLabel.setText(x.getTitle());
-                schoolLabel.setText(x.getSchool());
-                supervisorLabel.setText(x.getSupervisor());
-                change = true;
+       for(int x =0; x<studentProject.getNumOfProjects();x++) {
+                Project temp = (Project) studentProject.getProject(x);
+            if (temp.getTitle().equals(project) && change == false) {
+                Student[] tempp = temp.getStudent();
+                titleLabel.setText(temp.getTitle());
+                schoolLabel.setText(temp.getSchool());
+                supervisorLabel.setText(temp.getSupervisor());
+                for(int i=0;i<tempp.length;i++){
+                    System.out.println(tempp.length);
+                    if(change == false){
                 //set textbox for students information
-                studInfo += x.getStudent()[0].displayStudentInfo();
-
-            } else if (x.getTitle().equals(project) && change == true) {
-                for(int i=1;i<x.getStudent().length;i++)
-                studInfo += x.getStudent()[0].displayStudentInfo();
+                studInfo += tempp[0].displayStudentInfo();
+                change = true;
+                    } else {
+                studInfo += tempp[i].displayStudentInfo();
+                    }
+            }
             }
             //Count to switch img labels
             int count = 1;
-            for (int i = 0; i < students.length; i++) {
-                if (students[i].getTitle().equals(project)) {
-                    try{
-                    switch (count) {
-                        case 1:
-                            img1.setIcon(getIcon(students[i].getStudent()[count].getadminNum()));
-                            count++;
-                            break;
-                        case 2:
-                            img2.setIcon(getIcon(students[i].getStudent()[count].getadminNum()));
-                            count++;
-                            break;
-                        case 3:
-                            img3.setIcon(getIcon(students[i].getStudent()[count].getadminNum()));
-                            count++;
-                            break;
-                    }
+            for(int i =0; i<studentProject.getNumOfProjects();i++) {
+                if (temp.getTitle().equals(project)) {
+                    try {
+                        switch (count) {
+                            case 1:
+                                img1.setIcon(getIcon(temp.getStudent()[count].getadminNum()));
+                                count++;
+                                break;
+                            case 2:
+                                img2.setIcon(getIcon(temp.getStudent()[count].getadminNum()));
+                                count++;
+                                break;
+                            case 3:
+                                img3.setIcon(getIcon(temp.getStudent()[count].getadminNum()));
+                                count++;
+                                break;
+                        }
                     }catch(Exception ex){}
                 }
             }
@@ -404,16 +406,20 @@ public class ProjectFrame extends javax.swing.JFrame {
 
     // Return List object of user chosen School
     public static List<Project> userSearchResult(String schName) {
-        Project[] studentProject = ProjectFile.extractProjectDataFromFile();
+        ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
         List<Project> studentProjectResult = new ArrayList<>();
         
         //Return All "Any" || Some when user selects a school
         if (schName.equals("Any")) {
-            studentProjectResult = Arrays.asList(studentProject);
+            for(int i =0; i<studentProject.getNumOfProjects();i++){
+            Project temp = (Project) studentProject.getProject(i);
+            studentProjectResult.add(temp);
+            }
         } else {
-            for (Project sch : studentProject) {
-                if (sch.getSchool().equals(schName)) {
-                    studentProjectResult.add(sch);
+            for(int i =0; i<studentProject.getNumOfProjects();i++) {
+                Project temp = (Project) studentProject.getProject(i);
+                if (temp.getSchool().equals(schName)) {
+                    studentProjectResult.add(temp);
                 }
             }
         }
@@ -423,13 +429,14 @@ public class ProjectFrame extends javax.swing.JFrame {
     }
 
     //Method to populate the Projects ComboBox
-    public static void populateProjects(Project[] allStudents) {
+    public static void populateProjects(ProjectCollection allStudents) {
         List<String> newList = new ArrayList<>();
 
-        for (Project allStudent : allStudents) {
-            if (!newList.contains(allStudent.getTitle())) {
-                newList.add(allStudent.getTitle());
-                projectComboBox.addItem(allStudent.getTitle());
+        for (int i=0;i<allStudents.getNumOfProjects();i++) {
+            Project temp = (Project) allStudents.getProject(i);
+            if (!newList.contains(temp.getTitle())) {
+                newList.add(temp.getTitle());
+                projectComboBox.addItem(temp.getTitle());
             }
             //Make combo box empty
             projectComboBox.setSelectedIndex(-1);
@@ -437,21 +444,22 @@ public class ProjectFrame extends javax.swing.JFrame {
     }
 //Method to populate the School ComboBox
 
-    public static void populateSchools(Project[] allStudents) {
+    public static void populateSchools(ProjectCollection allStudents) {
         schoolComboBox.addItem("Any");
         List<String> newList = new ArrayList<>();
 
-        for (Project allStudent : allStudents) {
-            if (!newList.contains(allStudent.getSchool())) {
-                newList.add(allStudent.getSchool());
-                schoolComboBox.addItem(allStudent.getSchool());
+        for (int i=0;i<allStudents.getNumOfProjects();i++) {
+            Project temp = (Project) allStudents.getProject(i);
+            if (!newList.contains(temp.getSchool())) {
+                newList.add(temp.getSchool());
+                schoolComboBox.addItem(temp.getSchool());
             }
         }
     }
 
     //Main method calls for methods to populate the combo boxes at the start of the program
     public static void main(String[] args) {
-        Project[] allStudents = ProjectFile.extractProjectDataFromFile();
+        ProjectCollection allStudents = ProjectFile.extractProjectDataFromFile();
         populateProjects(allStudents);
         populateSchools(allStudents);
 

@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 
 public class ProjectFile {
 
-    public static Project[] extractProjectDataFromFile() {
+    public static ProjectCollection extractProjectDataFromFile() {
         // Phliip: C:/Users/2014p/Documents/GitHub/FYP_System/projects.txt
         String filePath = "C:/Users/2014p/Documents/GitHub/FYP_System/projects.txt";
         String val;
@@ -21,7 +21,7 @@ public class ProjectFile {
         try {
             br = new BufferedReader(new FileReader(filePath));
             while ((val = br.readLine()) != null) {
-                System.out.println(val);
+//                System.out.println(val);
                 projectData.add(val);
             }
             br.close();
@@ -31,14 +31,14 @@ public class ProjectFile {
                     "Text file may not exist! Please check file path again", "ERROR",
                     JOptionPane.ERROR_MESSAGE); //Successful Message when printed
         }
-
+        
         return createProjectObject(projectData);
     }
 
-    public static Project[] createProjectObject(List<String> data) {
-
+    public static ProjectCollection createProjectObject(List<String> data) {
+        ProjectCollection output = new ProjectCollection();
         Project[] project = new Project[Integer.parseInt(data.get(0))];
-        System.out.println(project.length);
+//        System.out.println(project.length);
         List<List<String>> projectData = new ArrayList<>();
 
         // Split element of array to become 2D Array
@@ -61,32 +61,33 @@ public class ProjectFile {
                     students[j] = new Student(adminNum, name, course, gender);
                     k += 4;
                 }
-                System.out.println(supervisor +  "<<");
+//                System.out.println(supervisor +  "<<");
                 project[i] = new Project(students, title, school, supervisor);
+                output.addProject(project[i]);
             }
      
         
-        for(Project ject: project){
-             for(Student stud:  ject.getStudent()){
-                 System.out.println(stud.getName() + " Supervisor: " + ject.getSupervisor());
-             }
-        }
-        
-        return project;
+//        for(Project ject: project){
+//             for(Student stud:  ject.getStudent()){
+//                 System.out.println(stud.getName() + " Supervisor: " + ject.getSupervisor());
+//             }
+//        }
+        return output;
     }
 
     //Get String output to be used for printing to output.txt
-    public static String getOutput(Project[] projectList, String project) {
+    public static String getOutput(ProjectCollection projectList, String project) {
         String output = "";
         boolean change = false; //Boolean to properly format names of student
 
-        for (Project x : projectList) {
-            if (x.getTitle().equals(project) && change == false) {
-                output = x.getTitle() + "\n" + x.getSchool() + "\n" + x.getSupervisor() + "\n" + x.getStudent()[0].getName();
+        for (int i=0;i<projectList.getNumOfProjects();i++) {
+            Project temp = (Project) projectList.getProject(i);
+            if (temp.getTitle().equals(project) && change == false) {
+                output = temp.getTitle() + "\n" + temp.getSchool() + "\n" + temp.getSupervisor() + "\n" + temp.getStudent()[0].getName();
                 change = true;
-            } else if (x.getTitle().equals(project) && change == true) {
-                for(int i =1; i<x.getStudent().length;i++)
-                output += " ==> " + x.getStudent()[i].getName();
+            } else if (temp.getTitle().equals(project) && change == true) {
+                for(int x =1; i<temp.getStudent().length;x++)
+                output += " ==> " + temp.getStudent()[i].getName();
             }
         }
 
