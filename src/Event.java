@@ -9,4 +9,28 @@
  * @author 2014p
  */
 public class Event {
+
+    private Project[] projects;
+    private String eventTitle;
+
+    public Event(Project[] projects, String eventTitle) {
+        this.projects = projects;
+        this.eventTitle = eventTitle;
+    }
+
+    public String getEventTitle() {
+        return eventTitle;
+    }
+
+    public void setEventTitle(String eventTitle) {
+        this.eventTitle = eventTitle;
+    }
+
+    public Project[] getProjects() {
+        return projects;
+    }
+   
+    public void setProjects(Project[] projects){
+        this.projects = projects;
+    }
 }
