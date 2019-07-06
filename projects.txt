@@ -7,6 +7,6 @@ Drama,MAD,Michael Tay,1,P105322,Tan Shi Hui,DTVM,F
 Planes,MAE,Jason Quek,3,P103211,Don Tay,DARE,M,P190265,Don Tan,DARE,M,P190233,Don Don,DARE,F
 Buildings,ABE,Building Tan,2,P190311,Building Boy,DARCH,F,P190312,Building Girl,DARCH,M
 Electricity,EEE,Nikola Tesla,1,P123421,Albert Einstein,DEEE,M
-Buildings 2.0,ABE,Tower Tan,3,P190211,Tower Man,DARCH,M,P109212,Tower Woman,DARCH,F,P189212,Tower Tower,DLA,M
+Buildings2,ABE,Tower Tan,3,P190211,Tower Man,DARCH,M,P109212,Tower Woman,DARCH,F,P189212,Tower Tower,DLA,M
 Red Living,SOC,Lim Audrey,2,P432101,Chua Peter,DIT,F,P782301,Shu Ming Ng,DISM,M
 

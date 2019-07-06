@@ -337,29 +337,32 @@ public class ProjectFrame extends javax.swing.JFrame {
                 supervisorLabel.setText(x.getSupervisor());
                 change = true;
                 //set textbox for students information
-                studInfo += x.displayStudentInfo();
+                studInfo += x.getStudent()[0].displayStudentInfo();
 
             } else if (x.getTitle().equals(project) && change == true) {
-                studInfo += x.displayStudentInfo();
+                for(int i=1;i<x.getStudent().length;i++)
+                studInfo += x.getStudent()[0].displayStudentInfo();
             }
             //Count to switch img labels
             int count = 1;
             for (int i = 0; i < students.length; i++) {
                 if (students[i].getTitle().equals(project)) {
+                    try{
                     switch (count) {
                         case 1:
-                            img1.setIcon(getIcon(students[i].getadminNum()));
+                            img1.setIcon(getIcon(students[i].getStudent()[count].getadminNum()));
                             count++;
                             break;
                         case 2:
-                            img2.setIcon(getIcon(students[i].getadminNum()));
+                            img2.setIcon(getIcon(students[i].getStudent()[count].getadminNum()));
                             count++;
                             break;
                         case 3:
-                            img3.setIcon(getIcon(students[i].getadminNum()));
+                            img3.setIcon(getIcon(students[i].getStudent()[count].getadminNum()));
                             count++;
                             break;
                     }
+                    }catch(Exception ex){}
                 }
             }
         }

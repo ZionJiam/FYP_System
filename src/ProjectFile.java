@@ -38,15 +38,15 @@ public class ProjectFile {
     public static Project[] createProjectObject(List<String> data) {
 
         Project[] project = new Project[Integer.parseInt(data.get(0))];
+        System.out.println(project.length);
         List<List<String>> projectData = new ArrayList<>();
 
         // Split element of array to become 2D Array
-        for (int i = 1; i < data.size(); i++) {
+        for (int i = 1; i < project.length+1; i++) {
             projectData.add(Arrays.asList(data.get(i).split(",")));
         }
         //New
             for (int i = 0; i < projectData.size(); i++) {
-
                 String title = projectData.get(i).get(0), school = projectData.get(i).get(1), supervisor = projectData.get(i).get(2);
                 int numOfStud = Integer.parseInt(projectData.get(i).get(3)); //Get number of student in a project group
                 Student[] students = new Student[numOfStud];
@@ -82,10 +82,11 @@ public class ProjectFile {
 
         for (Project x : projectList) {
             if (x.getTitle().equals(project) && change == false) {
-                output = x.getTitle() + "\n" + x.getSchool() + "\n" + x.getSupervisor() + "\n" + x.getName();
+                output = x.getTitle() + "\n" + x.getSchool() + "\n" + x.getSupervisor() + "\n" + x.getStudent()[0].getName();
                 change = true;
             } else if (x.getTitle().equals(project) && change == true) {
-                output += " ==> " + x.getName();
+                for(int i =1; i<x.getStudent().length;i++)
+                output += " ==> " + x.getStudent()[i].getName();
             }
         }
 
