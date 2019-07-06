@@ -21,7 +21,7 @@ public class ProjectFile {
         try {
             br = new BufferedReader(new FileReader(filePath));
             while ((val = br.readLine()) != null) {
-                System.out.println(val);
+//                System.out.println(val);
                 projectData.add(val);
             }
             br.close();
@@ -31,14 +31,15 @@ public class ProjectFile {
                     "Text file may not exist! Please check file path again", "ERROR",
                     JOptionPane.ERROR_MESSAGE); //Successful Message when printed
         }
-
+        Project[] temp =  createProjectObject(projectData);
+        
         return createProjectObject(projectData);
     }
 
     public static Project[] createProjectObject(List<String> data) {
 
         Project[] project = new Project[Integer.parseInt(data.get(0))];
-        System.out.println(project.length);
+//        System.out.println(project.length);
         List<List<String>> projectData = new ArrayList<>();
 
         // Split element of array to become 2D Array
@@ -61,16 +62,16 @@ public class ProjectFile {
                     students[j] = new Student(adminNum, name, course, gender);
                     k += 4;
                 }
-                System.out.println(supervisor +  "<<");
+//                System.out.println(supervisor +  "<<");
                 project[i] = new Project(students, title, school, supervisor);
             }
      
         
-        for(Project ject: project){
-             for(Student stud:  ject.getStudent()){
-                 System.out.println(stud.getName() + " Supervisor: " + ject.getSupervisor());
-             }
-        }
+//        for(Project ject: project){
+//             for(Student stud:  ject.getStudent()){
+//                 System.out.println(stud.getName() + " Supervisor: " + ject.getSupervisor());
+//             }
+//        }
         
         return project;
     }

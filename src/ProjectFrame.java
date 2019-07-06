@@ -178,7 +178,6 @@ public class ProjectFrame extends javax.swing.JFrame {
         titleLabel.setFont(new java.awt.Font("Arial", 0, 21)); // NOI18N
 
         supervisorLabel.setFont(new java.awt.Font("Arial", 0, 21)); // NOI18N
-        supervisorLabel.setText("jLabel9");
 
         schoolLabel.setFont(new java.awt.Font("Arial", 0, 21)); // NOI18N
 
@@ -259,10 +258,9 @@ public class ProjectFrame extends javax.swing.JFrame {
         resetIcons();
         String info = "";
         try {
+            System.out.println("-------------------------------------Success---------------------------------");
             info = setLabels(projectComboBox.getSelectedItem().toString());
-
         } catch (NullPointerException e) {
-
         }
         studentInfo.setText(info);
     }//GEN-LAST:event_projectComboBoxActionPerformed
@@ -327,41 +325,44 @@ public class ProjectFrame extends javax.swing.JFrame {
         resetIcons();
         String studInfo = "";
         Project[] students = ProjectFile.extractProjectDataFromFile();
-
         boolean change = false; //Boolean to properly format names of student
         //Set labels for project name, school and supervisor
         for (Project x : students) {
             if (x.getTitle().equals(project) && change == false) {
+                Student[] temp = x.getStudent();
                 titleLabel.setText(x.getTitle());
                 schoolLabel.setText(x.getSchool());
                 supervisorLabel.setText(x.getSupervisor());
-                change = true;
+                for(int i=0;i<temp.length;i++){
+                    System.out.println(temp.length);
+                    if(change == false){
                 //set textbox for students information
-                studInfo += x.getStudent()[0].displayStudentInfo();
-
-            } else if (x.getTitle().equals(project) && change == true) {
-                for(int i=1;i<x.getStudent().length;i++)
-                studInfo += x.getStudent()[0].displayStudentInfo();
+                studInfo += temp[0].displayStudentInfo();
+                change = true;
+                    } else {
+                studInfo += temp[i].displayStudentInfo();
+                    }
+            }
             }
             //Count to switch img labels
             int count = 1;
-            for (int i = 0; i < students.length; i++) {
-                if (students[i].getTitle().equals(project)) {
-                    try{
-                    switch (count) {
-                        case 1:
-                            img1.setIcon(getIcon(students[i].getStudent()[count].getadminNum()));
-                            count++;
-                            break;
-                        case 2:
-                            img2.setIcon(getIcon(students[i].getStudent()[count].getadminNum()));
-                            count++;
-                            break;
-                        case 3:
-                            img3.setIcon(getIcon(students[i].getStudent()[count].getadminNum()));
-                            count++;
-                            break;
-                    }
+            for (Project student : students) {
+                if (student.getTitle().equals(project)) {
+                    try {
+                        switch (count) {
+                            case 1:
+                                img1.setIcon(getIcon(student.getStudent()[count].getadminNum()));
+                                count++;
+                                break;
+                            case 2:
+                                img2.setIcon(getIcon(student.getStudent()[count].getadminNum()));
+                                count++;
+                                break;
+                            case 3:
+                                img3.setIcon(getIcon(student.getStudent()[count].getadminNum()));
+                                count++;
+                                break;
+                        }
                     }catch(Exception ex){}
                 }
             }
