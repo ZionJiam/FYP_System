@@ -31,7 +31,6 @@ public class ProjectFile {
                     "Text file may not exist! Please check file path again", "ERROR",
                     JOptionPane.ERROR_MESSAGE); //Successful Message when printed
         }
-        Project[] temp =  createProjectObject(projectData);
         
         return createProjectObject(projectData);
     }

@@ -258,7 +258,6 @@ public class ProjectFrame extends javax.swing.JFrame {
         resetIcons();
         String info = "";
         try {
-            System.out.println("-------------------------------------Success---------------------------------");
             info = setLabels(projectComboBox.getSelectedItem().toString());
         } catch (NullPointerException e) {
         }
@@ -335,7 +334,6 @@ public class ProjectFrame extends javax.swing.JFrame {
                 schoolLabel.setText(temp.getSchool());
                 supervisorLabel.setText(temp.getSupervisor());
                 for(int i=0;i<tempp.length;i++){
-                    System.out.println(tempp.length);
                     if(change == false){
                 //set textbox for students information
                 studInfo += tempp[0].displayStudentInfo();
@@ -348,19 +346,23 @@ public class ProjectFrame extends javax.swing.JFrame {
             //Count to switch img labels
             int count = 1;
             for(int i =0; i<studentProject.getNumOfProjects();i++) {
-                if (temp.getTitle().equals(project)) {
+                Project temp2 = (Project) studentProject.getProject(i);
+                if (temp2.getTitle().equals(project)) {
                     try {
                         switch (count) {
                             case 1:
-                                img1.setIcon(getIcon(temp.getStudent()[count].getadminNum()));
+                                System.out.println(temp2.getStudent()[i].getadminNum());
+                                img1.setIcon(getIcon(temp2.getStudent()[i].getadminNum()));
                                 count++;
                                 break;
                             case 2:
-                                img2.setIcon(getIcon(temp.getStudent()[count].getadminNum()));
+                                System.out.println(temp2.getStudent()[count].getadminNum());
+                                img2.setIcon(getIcon(temp2.getStudent()[count].getadminNum()));
                                 count++;
                                 break;
                             case 3:
-                                img3.setIcon(getIcon(temp.getStudent()[count].getadminNum()));
+                                System.out.println(temp2.getStudent()[count].getadminNum());
+                                img3.setIcon(getIcon(temp2.getStudent()[count].getadminNum()));
                                 count++;
                                 break;
                         }
