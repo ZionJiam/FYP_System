@@ -9,5 +9,4 @@
  * @author 2014p
  */
 public class Event {
-    
 }

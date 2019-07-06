@@ -8,35 +8,35 @@
  *
  * @author 2014p
  */
-public class EventCollection {
-    private int currEvent;
-    private LinkList eventList;
-    public EventCollection(){
-        currEvent = 0;  
-        eventList = new LinkList();
+public class ProjectCollection {
+    private int currProject;
+    private LinkList projectList;
+    public ProjectCollection(){
+        currProject = 0;  
+        projectList = new LinkList();
     }
     
-    public int getNumOfEvents(){
-        return eventList.getNoOfElement();
+    public int getNumOfProjects(){
+        return projectList.getNoOfElement();
     }
     
-    public Object getEvent(int num){
-        return eventList.get(num);
+    public Object getProject(int num){
+        return projectList.get(num);
     }
     
-    public void addEvent(Event emp){
-        eventList.addLast(emp);
+    public void addProject(Event emp){
+        projectList.addLast(emp);
     }
     
     public int getNext(){
         try{
-        return ++currEvent;
+        return ++currProject;
         }catch(Exception e){return getLast();}
     }
     
     public int getPrev(){
         try{
-        return --currEvent;
+        return --currProject;
         }catch(Exception e){return getFirst();}
     }
     
@@ -45,6 +45,6 @@ public class EventCollection {
     }
     
     public int getLast(){
-        return eventList.getNoOfElement();
+        return projectList.getNoOfElement();
     }
 }
