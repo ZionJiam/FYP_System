@@ -35,15 +35,15 @@
                       </Group>
                   </Group>
                   <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="addNameBox" alignment="0" min="-2" pref="314" max="-2" attributes="0"/>
+                  <Component id="eventTitleBox" alignment="0" min="-2" pref="314" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="updateProjectButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="addEvent" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="updateProjectButton" min="-2" max="-2" attributes="0"/>
+                      <Component id="registerEvent" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="addNewStudentLabel" min="-2" max="-2" attributes="0"/>
                   <Component id="addNewStudentLabel1" min="-2" max="-2" attributes="0"/>
-                  <Component id="addNewStudentLabel2" min="-2" max="-2" attributes="0"/>
+                  <Component id="selectedProject" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -75,15 +75,15 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="addNewStudentLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="addNameBox" min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="eventTitleBox" min="-2" pref="44" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="addNewStudentLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="addNewStudentLabel2" min="-2" max="-2" attributes="0"/>
+                      <Component id="selectedProject" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="updateProjectButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="updateProjectButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="addEvent" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="registerEvent" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                   </Group>
@@ -127,7 +127,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JTextField" name="addNameBox">
+    <Component class="javax.swing.JTextField" name="eventTitleBox">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="18" style="0"/>
@@ -157,7 +157,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JList" name="projectList1">
+        <Component class="javax.swing.JList" name="eventDetailList">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="14" style="0"/>
@@ -172,7 +172,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="updateProjectButton">
+    <Component class="javax.swing.JButton" name="registerEvent">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="18" style="0"/>
@@ -195,7 +195,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JList" name="projectList2">
+        <Component class="javax.swing.JList" name="eventList">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="14" style="0"/>
@@ -210,7 +210,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="updateProjectButton1">
+    <Component class="javax.swing.JButton" name="addEvent">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="18" style="0"/>
@@ -226,7 +226,7 @@
         <Property name="text" type="java.lang.String" value="Event Title:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="addNewStudentLabel2">
+    <Component class="javax.swing.JLabel" name="selectedProject">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="24" style="0"/>
