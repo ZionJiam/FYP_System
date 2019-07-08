@@ -337,7 +337,8 @@ public class ProjectFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_schoolComboBoxActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        // TODO add your handling code here:
+
+                new editProjectForm().setVisible(true);
     }//GEN-LAST:event_addButtonActionPerformed
 
 //Set labels for display for each respective labels
