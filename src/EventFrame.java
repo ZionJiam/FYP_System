@@ -155,6 +155,20 @@ public class EventFrame extends javax.swing.JFrame {
 
     private void registerEventActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerEventActionPerformed
 
+        String[]proj = {"IPAD", "IPHONE","IPOD"};     
+        String evtTitle = "Dats cool";
+        
+//        Event event = new Event(proj,evtTitle);
+//        EventCollection evtCollection = new EventCollection();
+//        evtCollection.addEvent(event);
+//      
+//        evtCollection.writeFromFile();
+//        
+//        evtCollection.readFromFile();
+//        
+//        Event newEvt = evtCollection.getEvent(0);
+//        
+//        System.out.println(newEvt.getEventTitle());
     }//GEN-LAST:event_registerEventActionPerformed
 
     /**

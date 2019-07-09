@@ -1,3 +1,6 @@
+
+import java.io.Serializable;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,7 +11,7 @@
  *
  * @author 2014p
  */
-public class Student {
+public class Student implements Serializable{
 
     private String name, course;
     private char gender;

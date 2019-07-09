@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author 2014p
- */
-public class LinkList {
+import java.io.Serializable;
+
+public class LinkList implements Serializable{
     private int noOfElement = 0;		// Number of elements in the list
 private ListNode headnode = null;	            // Headnode of the LinkList
 
