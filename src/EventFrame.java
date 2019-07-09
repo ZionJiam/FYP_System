@@ -8,6 +8,11 @@
  *
  * @author futur
  */
+import java.awt.event.*;
+import java.awt.*;
+import java.util.Arrays;
+import javax.swing.*;
+
 public class EventFrame extends javax.swing.JFrame {
 
     /**
@@ -63,6 +68,11 @@ public class EventFrame extends javax.swing.JFrame {
 
         registerEvent.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         registerEvent.setText("Register Project");
+        registerEvent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerEventActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel3.setText("Events");
@@ -143,6 +153,10 @@ public class EventFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void registerEventActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerEventActionPerformed
+
+    }//GEN-LAST:event_registerEventActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -191,7 +205,7 @@ public class EventFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JList<String> projectList;
+    private static javax.swing.JList<String> projectList;
     private javax.swing.JButton registerEvent;
     private javax.swing.JLabel selectedProject;
     // End of variables declaration//GEN-END:variables

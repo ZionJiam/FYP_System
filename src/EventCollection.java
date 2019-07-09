@@ -25,8 +25,12 @@ public class EventCollection implements Serializable {
         try {
             ObjectInputStream inStream = new ObjectInputStream(
                     new FileInputStream(f));
-            //return (this) inStream.readObject();
-            addEvent((Event) inStream.readObject());
+            Event readEvent = (Event) inStream.readObject();
+
+            while (readEvent != null) {
+                addEvent(readEvent);
+            }
+            
             inStream.close();
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -40,7 +44,9 @@ public class EventCollection implements Serializable {
         try {
             ObjectOutputStream outStream = new ObjectOutputStream(
                     new FileOutputStream(f));
-            outStream.writeObject(eventList);
+            for (int i = 0; i < currEvent; i++) {
+                outStream.writeObject(eventList.get(i));
+            }
             outStream.close();
         } catch (IOException ex) {
             ex.printStackTrace();
