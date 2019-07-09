@@ -53,6 +53,7 @@ public class ProjectFrame extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         addButton = new javax.swing.JButton();
+        eventButton = new javax.swing.JButton();
         titleLabel = new javax.swing.JLabel();
         supervisorLabel = new javax.swing.JLabel();
         schoolLabel = new javax.swing.JLabel();
@@ -133,6 +134,14 @@ public class ProjectFrame extends javax.swing.JFrame {
             }
         });
 
+        eventButton.setFont(new java.awt.Font("Calibri", 0, 22)); // NOI18N
+        eventButton.setText("Register Event");
+        eventButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eventButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -140,6 +149,9 @@ public class ProjectFrame extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -153,14 +165,18 @@ public class ProjectFrame extends javax.swing.JFrame {
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9)
                             .addComponent(statButton, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(addButton)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(printButton, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jLabel4))
-                .addContainerGap(22, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(addButton)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(printButton, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                                .addComponent(eventButton)
+                                .addGap(35, 35, 35))))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,7 +193,9 @@ public class ProjectFrame extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel9)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel9)
+                    .addComponent(eventButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -227,8 +245,9 @@ public class ProjectFrame extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(img1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(img3, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(img2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(53, Short.MAX_VALUE))
+                                    .addComponent(img2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 178, Short.MAX_VALUE)))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -236,13 +255,14 @@ public class ProjectFrame extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(titleLabel)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(schoolLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(supervisorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
+                    .addComponent(supervisorLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel8)
+                        .addComponent(titleLabel)
+                        .addComponent(jLabel7)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -338,8 +358,12 @@ public class ProjectFrame extends javax.swing.JFrame {
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
 
-                new editProjectForm().setVisible(true);
+        new editProjectForm().setVisible(true);
     }//GEN-LAST:event_addButtonActionPerformed
+
+    private void eventButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eventButtonActionPerformed
+        new EventFrame().setVisible(true);
+    }//GEN-LAST:event_eventButtonActionPerformed
 
 //Set labels for display for each respective labels
     private String setLabels(String project) {
@@ -348,43 +372,44 @@ public class ProjectFrame extends javax.swing.JFrame {
         ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
         boolean change = false; //Boolean to properly format names of student
         //Set labels for project name, school and supervisor
-       for(int x =0; x<studentProject.getNumOfProjects();x++) {
-                Project temp = (Project) studentProject.getProject(x);
+        for (int x = 0; x < studentProject.getNumOfProjects(); x++) {
+            Project temp = (Project) studentProject.getProject(x);
             if (temp.getTitle().equals(project) && change == false) {
                 Student[] tempp = temp.getStudent();
                 titleLabel.setText(temp.getTitle());
                 schoolLabel.setText(temp.getSchool());
                 supervisorLabel.setText(temp.getSupervisor());
-                for(int i=0;i<tempp.length;i++){
-                    if(change == false){
-                //set textbox for students information
-                studInfo += tempp[0].displayStudentInfo();
-                change = true;
+                for (int i = 0; i < tempp.length; i++) {
+                    if (change == false) {
+                        //set textbox for students information
+                        studInfo += tempp[0].displayStudentInfo();
+                        change = true;
                     } else {
-                studInfo += tempp[i].displayStudentInfo();
+                        studInfo += tempp[i].displayStudentInfo();
                     }
+                }
             }
-            }
-            for(int i =0; i<studentProject.getNumOfProjects();i++) {
+            for (int i = 0; i < studentProject.getNumOfProjects(); i++) {
                 Project temp2 = (Project) studentProject.getProject(i);
                 if (temp2.getTitle().equals(project)) {
-                    for(int y=0;y<temp2.getStudent().length;y++){
-                    try {
-                        switch (y) {
-                            case 0:
-                                System.out.println("1st "+temp2.getStudent()[y].getadminNum());
-                                img1.setIcon(getIcon(temp2.getStudent()[y].getadminNum()));
-                                break;
-                            case 1:
-                                System.out.println("2nd "+temp2.getStudent()[y].getadminNum());
-                                img2.setIcon(getIcon(temp2.getStudent()[y].getadminNum()));
-                                break;
-                            case 2:
-                                System.out.println("3rd "+temp2.getStudent()[y].getadminNum());
-                                img3.setIcon(getIcon(temp2.getStudent()[y].getadminNum()));
-                                break;
+                    for (int y = 0; y < temp2.getStudent().length; y++) {
+                        try {
+                            switch (y) {
+                                case 0:
+                                    System.out.println("1st " + temp2.getStudent()[y].getadminNum());
+                                    img1.setIcon(getIcon(temp2.getStudent()[y].getadminNum()));
+                                    break;
+                                case 1:
+                                    System.out.println("2nd " + temp2.getStudent()[y].getadminNum());
+                                    img2.setIcon(getIcon(temp2.getStudent()[y].getadminNum()));
+                                    break;
+                                case 2:
+                                    System.out.println("3rd " + temp2.getStudent()[y].getadminNum());
+                                    img3.setIcon(getIcon(temp2.getStudent()[y].getadminNum()));
+                                    break;
+                            }
+                        } catch (Exception ex) {
                         }
-                    }catch(Exception ex){}
                     }
                 }
             }
@@ -429,15 +454,15 @@ public class ProjectFrame extends javax.swing.JFrame {
     public static List<Project> userSearchResult(String schName) {
         ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
         List<Project> studentProjectResult = new ArrayList<>();
-        
+
         //Return All "Any" || Some when user selects a school
         if (schName.equals("Any")) {
-            for(int i =0; i<studentProject.getNumOfProjects();i++){
-            Project temp = (Project) studentProject.getProject(i);
-            studentProjectResult.add(temp);
+            for (int i = 0; i < studentProject.getNumOfProjects(); i++) {
+                Project temp = (Project) studentProject.getProject(i);
+                studentProjectResult.add(temp);
             }
         } else {
-            for(int i =0; i<studentProject.getNumOfProjects();i++) {
+            for (int i = 0; i < studentProject.getNumOfProjects(); i++) {
                 Project temp = (Project) studentProject.getProject(i);
                 if (temp.getSchool().equals(schName)) {
                     studentProjectResult.add(temp);
@@ -453,7 +478,7 @@ public class ProjectFrame extends javax.swing.JFrame {
     public static void populateProjects(ProjectCollection allStudents) {
         List<String> newList = new ArrayList<>();
 
-        for (int i=0;i<allStudents.getNumOfProjects();i++) {
+        for (int i = 0; i < allStudents.getNumOfProjects(); i++) {
             Project temp = (Project) allStudents.getProject(i);
             if (!newList.contains(temp.getTitle())) {
                 newList.add(temp.getTitle());
@@ -469,7 +494,7 @@ public class ProjectFrame extends javax.swing.JFrame {
         schoolComboBox.addItem("Any");
         List<String> newList = new ArrayList<>();
 
-        for (int i=0;i<allStudents.getNumOfProjects();i++) {
+        for (int i = 0; i < allStudents.getNumOfProjects(); i++) {
             Project temp = (Project) allStudents.getProject(i);
             if (!newList.contains(temp.getSchool())) {
                 newList.add(temp.getSchool());
@@ -497,6 +522,7 @@ public class ProjectFrame extends javax.swing.JFrame {
      */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
+    private javax.swing.JButton eventButton;
     private javax.swing.JLabel img1;
     private javax.swing.JLabel img2;
     private javax.swing.JLabel img3;
