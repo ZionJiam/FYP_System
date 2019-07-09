@@ -20,21 +20,19 @@ public class EventCollection implements Serializable {
     }
 
     public void readFromFile(String fileName) {
-        File f = new File("Person.dat");
-
         try {
-            ObjectInputStream inStream = new ObjectInputStream(
-                    new FileInputStream(f));
-            Event readEvent = (Event) inStream.readObject();
-
-            while (readEvent != null) {
-                addEvent(readEvent);
-            }
+            File f = new File(fileName);
+            ObjectInputStream inStream = new ObjectInputStream(new FileInputStream(f));
+            Event evt = null;
             
+            while ((evt = (Event) inStream.readObject()) != null) {
+                addEvent(evt);
+            }
             inStream.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+        
 
     }
 
