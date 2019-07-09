@@ -11,6 +11,7 @@
 public class ProjectCollection {
     private int currProject;
     private LinkList projectList;
+    
     public ProjectCollection(){
         currProject = 0;  
         projectList = new LinkList();
