@@ -483,6 +483,7 @@ public class editProjectForm extends javax.swing.JFrame {
                 ProjectFile.saveDesiredOutput(studentProject);
             }
         }
+        resetBoxes();
         setupForm();
     }//GEN-LAST:event_updateProjectButtonActionPerformed
 
@@ -514,9 +515,21 @@ public class editProjectForm extends javax.swing.JFrame {
                 }
             }
         }
+                resetBoxes();
         setupForm();
     }//GEN-LAST:event_updateStudentButtonActionPerformed
-
+    public void resetBoxes(){
+        titleBox.setText("");
+        schoolBox.setText("");
+        supervisorBox.setText("");
+        nameBox.setText("");
+        courseBox.setText("");
+        adminBox.setText("");
+                            ButtonGroup group = new ButtonGroup();
+    group.add(maleButton);
+    group.add(femaleButton);
+    group.clearSelection();
+    }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
