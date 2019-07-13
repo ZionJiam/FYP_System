@@ -106,4 +106,28 @@ public class ProjectFile {
         }
 
     }
+    
+     public static void saveDesiredOutput(ProjectCollection desiredOutput) {
+        //Philip： C:/Users/2014p/Documents/GitHub/FYP_System/output.txt
+        String filePath = "C:/Users/2014p/Documents/GitHub/FYP_System/projects.txt";
+        PrintWriter printWriter;
+
+        try {
+            printWriter = new PrintWriter(new FileWriter(filePath));
+            printWriter.println(desiredOutput.getNumOfProjects());
+            for( int i=0;i<desiredOutput.getNumOfProjects();i++){
+                Project temp = (Project) desiredOutput.getProject(i);
+                String output = temp.getTitle()+","+temp.getSchool()+","+temp.getSupervisor()+","+temp.getStudent().length+",";
+                for(int x=0;x<temp.getStudent().length;x++){
+                    output += temp.getStudent()[x].getadminNum()+","+temp.getStudent()[x].getName()+","+temp.getStudent()[x].getCourse()+","+temp.getStudent()[x].getGender()+",";
+                }
+                printWriter.println(output);
+            }
+            printWriter.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Project{
     
-    private Student[]student;
+    private Student[] student;
     private String title, school, supervisor;
 
     public Project(Student[]student, String title, String school, String supervisor) {        
@@ -15,6 +15,13 @@ public class Project{
     
     public Student[] getStudent(){
         return student;
+    }
+    
+    public void addStudent(Student input){
+        Student [] newArr = new Student [student.length+1];
+        System.arraycopy(student, 0, newArr, 0, student.length);
+        newArr[newArr.length-1] = input;
+        this.student = newArr;
     }
 
     public void setTitle(String title) {

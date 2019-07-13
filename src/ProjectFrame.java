@@ -245,9 +245,8 @@ public class ProjectFrame extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(img1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(img3, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(img2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 178, Short.MAX_VALUE)))))
-                .addContainerGap())
+                                    .addComponent(img2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -337,7 +336,7 @@ public class ProjectFrame extends javax.swing.JFrame {
     //For every change in school selected, change the Projects Combo box for selection
     private void schoolComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schoolComboBoxActionPerformed
         resetIcons();
-        String school = schoolComboBox.getSelectedItem().toString();
+       try{ String school = schoolComboBox.getSelectedItem().toString();
         List<Project> projectList;
         List<String> newList = new ArrayList<>();
         //Add projects into projectComboBox based on selected school
@@ -350,6 +349,7 @@ public class ProjectFrame extends javax.swing.JFrame {
                 projectComboBox.addItem(projectList.get(i).getTitle());
             }
         }
+       }catch(NullPointerException ex){};
 
         //Make textbox and combobox empty for every change
         projectComboBox.setSelectedIndex(-1);
@@ -359,6 +359,8 @@ public class ProjectFrame extends javax.swing.JFrame {
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
 
         new editProjectForm().setVisible(true);
+                editProjectForm.setupForm();
+        new ProjectFrame().setVisible(false);
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void eventButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eventButtonActionPerformed
@@ -396,15 +398,12 @@ public class ProjectFrame extends javax.swing.JFrame {
                         try {
                             switch (y) {
                                 case 0:
-                                    System.out.println("1st " + temp2.getStudent()[y].getadminNum());
                                     img1.setIcon(getIcon(temp2.getStudent()[y].getadminNum()));
                                     break;
                                 case 1:
-                                    System.out.println("2nd " + temp2.getStudent()[y].getadminNum());
                                     img2.setIcon(getIcon(temp2.getStudent()[y].getadminNum()));
                                     break;
                                 case 2:
-                                    System.out.println("3rd " + temp2.getStudent()[y].getadminNum());
                                     img3.setIcon(getIcon(temp2.getStudent()[y].getadminNum()));
                                     break;
                             }
@@ -441,7 +440,7 @@ public class ProjectFrame extends javax.swing.JFrame {
         img3.setIcon(null);
     }
 
-    public void resetLabels() {
+    public static void resetLabels() {
         titleLabel.setText("");
         schoolLabel.setText("");
         supervisorLabel.setText("");
@@ -477,7 +476,7 @@ public class ProjectFrame extends javax.swing.JFrame {
     //Method to populate the Projects ComboBox
     public static void populateProjects(ProjectCollection allStudents) {
         List<String> newList = new ArrayList<>();
-
+        projectComboBox.removeAllItems();
         for (int i = 0; i < allStudents.getNumOfProjects(); i++) {
             Project temp = (Project) allStudents.getProject(i);
             if (!newList.contains(temp.getTitle())) {
@@ -491,9 +490,10 @@ public class ProjectFrame extends javax.swing.JFrame {
 //Method to populate the School ComboBox
 
     public static void populateSchools(ProjectCollection allStudents) {
+        schoolComboBox.removeAllItems();
         schoolComboBox.addItem("Any");
         List<String> newList = new ArrayList<>();
-
+        
         for (int i = 0; i < allStudents.getNumOfProjects(); i++) {
             Project temp = (Project) allStudents.getProject(i);
             if (!newList.contains(temp.getSchool())) {
@@ -502,13 +502,16 @@ public class ProjectFrame extends javax.swing.JFrame {
             }
         }
     }
-
-    //Main method calls for methods to populate the combo boxes at the start of the program
-    public static void main(String[] args) {
+    
+    public static void populateComboBoxes(){
         ProjectCollection allStudents = ProjectFile.extractProjectDataFromFile();
         populateProjects(allStudents);
         populateSchools(allStudents);
+    }
 
+    //Main method calls for methods to populate the combo boxes at the start of the program
+    public static void main(String[] args) {
+        populateComboBoxes();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -523,16 +526,16 @@ public class ProjectFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
     private javax.swing.JButton eventButton;
-    private javax.swing.JLabel img1;
-    private javax.swing.JLabel img2;
-    private javax.swing.JLabel img3;
+    private static javax.swing.JLabel img1;
+    private static javax.swing.JLabel img2;
+    private static javax.swing.JLabel img3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private static javax.swing.JLabel jLabel5;
+    private static javax.swing.JLabel jLabel7;
+    private static javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -540,10 +543,10 @@ public class ProjectFrame extends javax.swing.JFrame {
     private javax.swing.JButton printButton;
     private static final javax.swing.JComboBox<String> projectComboBox = new javax.swing.JComboBox<>();
     private static final javax.swing.JComboBox<String> schoolComboBox = new javax.swing.JComboBox<>();
-    private javax.swing.JLabel schoolLabel;
+    private static javax.swing.JLabel schoolLabel;
     private javax.swing.JButton statButton;
     private javax.swing.JTextArea studentInfo;
-    private javax.swing.JLabel supervisorLabel;
-    private javax.swing.JLabel titleLabel;
+    private static javax.swing.JLabel supervisorLabel;
+    private static javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }

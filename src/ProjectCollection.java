@@ -25,6 +25,10 @@ public class ProjectCollection {
         return projectList.get(num);
     }
     
+    public LinkList getProjectList(){
+        return projectList;
+    }
+    
     public void addProject(Project proj){
         projectList.addLast(proj);
     }
