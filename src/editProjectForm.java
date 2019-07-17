@@ -576,7 +576,7 @@ public class editProjectForm extends javax.swing.JFrame {
     
     public static void setupForm(){
         ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
-                     DefaultListModel demoList = new DefaultListModel();
+        DefaultListModel demoList = new DefaultListModel();
         for(int i = 0 ; i < studentProject.getNumOfProjects();i++){
             Project temp = (Project) studentProject.getProject(i);
              demoList.addElement(temp.getTitle());

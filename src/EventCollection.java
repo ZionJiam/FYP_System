@@ -19,19 +19,27 @@ public class EventCollection implements Serializable {
         eventList = new LinkList();
     }
 
-    public EventCollection readFromFile() { 
-        EventCollection evt = new EventCollection();
-        
+    public EventCollection readFromFile() {
+        EventCollection evtCollection = new EventCollection();
+
         try {
-        File f = new File("C:\\Modules files\\Year 2\\Event.dat");
+            File f = new File("C:\\Modules files\\Year 2\\Event.dat");
             ObjectInputStream inStream = new ObjectInputStream(new FileInputStream(f));
-            evt = (EventCollection) inStream.readObject();
+            evtCollection = (EventCollection) inStream.readObject();
+            System.out.println(evtCollection.getNumOfEvents());
+            
+            for (int i = 0; i < evtCollection.getNumOfEvents(); i++) {
+                Event evt = evtCollection.getEvent(i);
+                addEvent(evt);
+            }
+            
+            
             inStream.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
 
-        return evt;
+        return evtCollection;
     }
 
     public void writeFromFile() {
@@ -53,7 +61,7 @@ public class EventCollection implements Serializable {
     }
 
     public Event getEvent(int num) {
-        return (Event)eventList.get(num);
+        return (Event) eventList.get(num);
     }
 
     public void addEvent(Event evt) {
