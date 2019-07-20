@@ -6,7 +6,6 @@ public class Project{
     private Student[] student;
     private String title, school, supervisor;
     
-    public Project(){}
     public Project(Student[]student, String title, String school, String supervisor) {        
         this.student = student;
         this.title = title;

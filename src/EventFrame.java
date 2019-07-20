@@ -228,11 +228,9 @@ public class EventFrame extends javax.swing.JFrame {
                 System.out.println("Hello");
             }
         }
-        //System.out.println(newProject.getSupervisor());
 
         for (int i = 0; i < evtCollection.getNumOfEvents(); i++) {
             if (eventTitle.equals(evtCollection.getEvent(i).getEventTitle())) {
-                //addToEvent = evtCollection.getEvent(i);
                 evtCollection.getEvent(i).addProject(newProject);
             }
         }
