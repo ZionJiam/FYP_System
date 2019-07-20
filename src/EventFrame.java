@@ -40,12 +40,15 @@ public class EventFrame extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         eventList = new javax.swing.JList<>();
-        addProject = new javax.swing.JButton();
         addNewStudentLabel1 = new javax.swing.JLabel();
         selectedProject = new javax.swing.JLabel();
         saveEvent = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         evtDetailBox = new javax.swing.JTextArea();
+        addNewStudentLabel2 = new javax.swing.JLabel();
+        eventTitleBox1 = new javax.swing.JTextField();
+        addNewStudentLabel3 = new javax.swing.JLabel();
+        eventTitleBox2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,16 +87,8 @@ public class EventFrame extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(eventList);
 
-        addProject.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        addProject.setText("Add ----- to ------");
-        addProject.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addProjectActionPerformed(evt);
-            }
-        });
-
         addNewStudentLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        addNewStudentLabel1.setText("Event Title:");
+        addNewStudentLabel1.setText("New Event Title:");
 
         selectedProject.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
 
@@ -109,6 +104,16 @@ public class EventFrame extends javax.swing.JFrame {
         evtDetailBox.setRows(5);
         jScrollPane4.setViewportView(evtDetailBox);
 
+        addNewStudentLabel2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        addNewStudentLabel2.setText("Add Project:");
+
+        eventTitleBox1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+
+        addNewStudentLabel3.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        addNewStudentLabel3.setText("To Event:");
+
+        eventTitleBox2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -117,22 +122,29 @@ public class EventFrame extends javax.swing.JFrame {
                 .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(addNewStudentLabel1)
-                    .addComponent(eventTitleBox, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addNewStudentLabel2)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(eventTitleBox, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
+                        .addComponent(eventTitleBox1, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(addNewStudentLabel3)
+                    .addComponent(eventTitleBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(addNewStudentLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addGap(45, 45, 45)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(selectedProject))
-                    .addComponent(addProject, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(selectedProject)))
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(28, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(84, 84, 84)
                 .addComponent(registerEvent)
@@ -159,16 +171,22 @@ public class EventFrame extends javax.swing.JFrame {
                         .addComponent(addNewStudentLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(eventTitleBox, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addComponent(addProject, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(61, 61, 61)
+                        .addGap(18, 18, 18)
+                        .addComponent(addNewStudentLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(eventTitleBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(addNewStudentLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(eventTitleBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
                         .addComponent(selectedProject))
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(saveEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(registerEvent))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -200,7 +218,7 @@ public class EventFrame extends javax.swing.JFrame {
 
     private void projectListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_projectListValueChanged
         String project = projectList.getSelectedValue();
-
+        
     }//GEN-LAST:event_projectListValueChanged
 
     private void eventListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_eventListValueChanged
@@ -208,13 +226,6 @@ public class EventFrame extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_eventListValueChanged
-
-    private void addProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProjectActionPerformed
-        String project = projectList.getSelectedValue();
-        String event = eventList.getSelectedValue();
-        
-        addProject.setText("Add "  + project + " to " + event);
-    }//GEN-LAST:event_addProjectActionPerformed
 
     public static void setupForm() {
         // Project
@@ -233,7 +244,7 @@ public class EventFrame extends javax.swing.JFrame {
 
         for (int i = 0; i < evtCollection.getNumOfEvents(); i++) {
             Event temp = evtCollection.getEvent(i);
-            //setupEventDetails(temp, i + 1);
+            setupEventDetails(temp, i + 1);
             evtDemoList.addElement(temp.getEventTitle());
         }
         eventList.setModel(evtDemoList);
@@ -293,9 +304,12 @@ public class EventFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addNewStudentLabel1;
-    private javax.swing.JButton addProject;
+    private javax.swing.JLabel addNewStudentLabel2;
+    private javax.swing.JLabel addNewStudentLabel3;
     private static javax.swing.JList<String> eventList;
     private javax.swing.JTextField eventTitleBox;
+    private javax.swing.JTextField eventTitleBox1;
+    private javax.swing.JTextField eventTitleBox2;
     private static javax.swing.JTextArea evtDetailBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
