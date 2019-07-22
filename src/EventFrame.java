@@ -225,18 +225,18 @@ public class EventFrame extends javax.swing.JFrame {
             Project proj = (Project) studentProject.getProject(i);
             if (projectName.equals(proj.getTitle())) {
                 newProject = proj;
-                System.out.println("Hello");
             }
         }
-
+        
+        System.out.println("Project going to be added is: " + newProject.getTitle());
+        
         for (int i = 0; i < evtCollection.getNumOfEvents(); i++) {
             if (eventTitle.equals(evtCollection.getEvent(i).getEventTitle())) {
                 evtCollection.getEvent(i).addProject(newProject);
             }
         }
-
-        //addToEvent.addProject(newProject);
-
+        evtCollection.writeFromFile();
+        setupForm();
     }//GEN-LAST:event_addProjectActionPerformed
 
     private void saveEventActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveEventActionPerformed

@@ -21,9 +21,17 @@ public class Event implements Serializable {
     }
 
     public void addProject(Project input) {
-        Project[] newArr = new Project[projects.length + 1];
-        System.arraycopy(projects, 0, newArr, 0, projects.length);
-        newArr[newArr.length - 1] = input;
+        Project[] newArr = null;
+
+        if (projects == null) {
+            newArr = new Project[1];
+            newArr[0] = input;
+        } else {
+            newArr = new Project[projects.length + 1];
+            System.arraycopy(projects, 0, newArr, 0, projects.length);
+            newArr[newArr.length - 1] = input;
+        }
+
         this.projects = newArr;
     }
 
