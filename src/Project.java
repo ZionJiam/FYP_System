@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Project{
+public class Project implements Serializable{
     
     private Student[] student;
     private String title, school, supervisor;
