@@ -360,11 +360,14 @@ public class ProjectFrame extends javax.swing.JFrame {
 
         new editProjectForm().setVisible(true);
                 editProjectForm.setupForm();
-        new ProjectFrame().setVisible(false);
+        this.setVisible(false);
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void eventButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eventButtonActionPerformed
+
         new EventFrame().setVisible(true);
+        EventFrame.setupForm();
+        this.setVisible(false);
     }//GEN-LAST:event_eventButtonActionPerformed
 
 //Set labels for display for each respective labels
