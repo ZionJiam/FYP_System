@@ -31,11 +31,10 @@ public class EventCollection implements Serializable {
             for (int i = 0; i < evtCollection.getNumOfEvents(); i++) {
                 Event evt = evtCollection.getEvent(i);
                 addEvent(evt);
-            }
-            
-            
+            }    
             inStream.close();
         } catch (Exception ex) {
+            System.out.println("File does not exist, just create some with the program");
             ex.printStackTrace();
         }
 
