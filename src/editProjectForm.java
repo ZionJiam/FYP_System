@@ -49,7 +49,7 @@ public class editProjectForm extends javax.swing.JFrame {
         adminLabel = new javax.swing.JLabel();
         courseLabel = new javax.swing.JLabel();
         courseBox = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        removeButton = new javax.swing.JButton();
         femaleButton = new javax.swing.JRadioButton();
         maleButton = new javax.swing.JRadioButton();
         canvas1 = new java.awt.Canvas();
@@ -134,11 +134,11 @@ public class editProjectForm extends javax.swing.JFrame {
 
         courseBox.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
-        jButton1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jButton1.setText("Remove Student");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        removeButton.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        removeButton.setText("Remove Student");
+        removeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                removeButtonActionPerformed(evt);
             }
         });
 
@@ -335,7 +335,7 @@ public class editProjectForm extends javax.swing.JFrame {
                                                     .addComponent(courseBox, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(nameBox, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(removeButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -366,7 +366,7 @@ public class editProjectForm extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(removeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -530,9 +530,9 @@ public class editProjectForm extends javax.swing.JFrame {
     group.add(femaleButton);
     group.clearSelection();
     }
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_removeButtonActionPerformed
 
     private void addStudentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addStudentButtonActionPerformed
         String selectedProjectValue = projectList.getSelectedValue();
@@ -610,7 +610,6 @@ group2.add(addFemaleButton);
     private javax.swing.JLabel courseLabel;
     private static javax.swing.JRadioButton femaleButton;
     private javax.swing.JLabel genderLabel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
@@ -621,6 +620,7 @@ group2.add(addFemaleButton);
     private javax.swing.JTextField nameBox;
     private javax.swing.JLabel nameLabel;
     private static javax.swing.JList<String> projectList;
+    private javax.swing.JButton removeButton;
     private javax.swing.JTextField schoolBox;
     private javax.swing.JLabel schoolLabel;
     private javax.swing.JList<String> studentList;
