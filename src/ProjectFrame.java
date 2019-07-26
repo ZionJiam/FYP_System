@@ -380,40 +380,42 @@ public class ProjectFrame extends javax.swing.JFrame {
         for (int x = 0; x < studentProject.getNumOfProjects(); x++) {
             Project temp = (Project) studentProject.getProject(x);
             if (temp.getTitle().equals(project) && change == false) {
-                Student[] tempp = temp.getStudent();
+                StudentCollection tempp = temp.getStudentList();
                 titleLabel.setText(temp.getTitle());
                 schoolLabel.setText(temp.getSchool());
                 supervisorLabel.setText(temp.getSupervisor());
-                for (int i = 0; i < tempp.length; i++) {
+                for (int i = 0; i < tempp.getNumOfStudents(); i++) {
+                    Student tempStud = (Student) temp.getStudentList().getStudent(i);
                     if (change == false) {
                         //set textbox for students information
-                        studInfo += tempp[0].displayStudentInfo();
+                        studInfo += tempStud.displayStudentInfo();
                         change = true;
                     } else {
-                        studInfo += tempp[i].displayStudentInfo();
+                        studInfo += tempStud.displayStudentInfo();
                     }
                 }
-            }
             for (int i = 0; i < studentProject.getNumOfProjects(); i++) {
                 Project temp2 = (Project) studentProject.getProject(i);
                 if (temp2.getTitle().equals(project)) {
-                    for (int y = 0; y < temp2.getStudent().length; y++) {
+                    for (int y = 0; y < temp2.getStudentList().getNumOfStudents(); y++) {
+                        Student tempStud = (Student) temp.getStudentList().getStudent(y);
                         try {
                             switch (y) {
                                 case 0:
-                                    img1.setIcon(getIcon(temp2.getStudent()[y].getadminNum()));
+                                    img1.setIcon(getIcon(tempStud.getadminNum()));
                                     break;
                                 case 1:
-                                    img2.setIcon(getIcon(temp2.getStudent()[y].getadminNum()));
+                                    img2.setIcon(getIcon(tempStud.getadminNum()));
                                     break;
                                 case 2:
-                                    img3.setIcon(getIcon(temp2.getStudent()[y].getadminNum()));
+                                    img3.setIcon(getIcon(tempStud.getadminNum()));
                                     break;
                             }
                         } catch (Exception ex) {
                         }
                     }
                 }
+            }
             }
         }
         //return student information to set textbox

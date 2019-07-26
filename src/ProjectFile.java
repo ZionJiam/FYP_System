@@ -49,19 +49,21 @@ public class ProjectFile {
             for (int i = 0; i < projectData.size(); i++) {
                 String title = projectData.get(i).get(0), school = projectData.get(i).get(1), supervisor = projectData.get(i).get(2);
                 int numOfStud = Integer.parseInt(projectData.get(i).get(3)); //Get number of student in a project group
-                Student[] students = new Student[numOfStud];
+                StudentCollection studentsList = new StudentCollection();
                 int k = 0;
                 // Create array of Student object
-                for (int j = 0; j < students.length; j++) {
+                for (int j = 0; j < numOfStud; j++) {
                     String adminNum = projectData.get(i).get(4 + k),
                             name = projectData.get(i).get(5 + k),
                             course = projectData.get(i).get(6 + k);
                     char gender = projectData.get(i).get(7 + k).charAt(0);
 
-                    students[j] = new Student(adminNum, name, course, gender);
+                    Student temp = new Student(adminNum, name, course, gender);
+                    studentsList.addStudent(temp);
                     k += 4;
                 }
-                project[i] = new Project(students, title, school, supervisor);
+                project[i] = new Project(studentsList, title, school, supervisor);
+                System.out.println("Initialising :"+project[i].getTitle());
                 output.addProject(project[i]);
             }
     
@@ -76,11 +78,13 @@ public class ProjectFile {
         for (int i=0;i<projectList.getNumOfProjects();i++) {
             Project temp = (Project) projectList.getProject(i);
             if (temp.getTitle().equals(project) && change == false) {
-                output = temp.getTitle() + "\n" + temp.getSchool() + "\n" + temp.getSupervisor() + "\n" + temp.getStudent()[0].getName();
+                output = temp.getTitle() + "\n" + temp.getSchool() + "\n" + temp.getSupervisor() + "\n" + temp.getStudentList().getStudent(i);
                 change = true;
             } else if (temp.getTitle().equals(project) && change == true) {
-                for(int x =1; i<temp.getStudent().length;x++)
-                output += " ==> " + temp.getStudent()[i].getName();
+                for(int x =1; i<temp.getStudentList().getNumOfStudents();x++){
+                     Student tempStud = (Student) temp.getStudentList().getStudent(x);
+                output += " ==> " +  tempStud.getName();
+                }
             }
         }
 
@@ -117,9 +121,10 @@ public class ProjectFile {
             printWriter.println(desiredOutput.getNumOfProjects());
             for( int i=0;i<desiredOutput.getNumOfProjects();i++){
                 Project temp = (Project) desiredOutput.getProject(i);
-                String output = temp.getTitle()+","+temp.getSchool()+","+temp.getSupervisor()+","+temp.getStudent().length+",";
-                for(int x=0;x<temp.getStudent().length;x++){
-                    output += temp.getStudent()[x].getadminNum()+","+temp.getStudent()[x].getName()+","+temp.getStudent()[x].getCourse()+","+temp.getStudent()[x].getGender()+",";
+                String output = temp.getTitle()+","+temp.getSchool()+","+temp.getSupervisor()+","+temp.getStudentList().getNumOfStudents()+",";
+                for(int x=0;x<temp.getStudentList().getNumOfStudents();x++){
+                    Student tempStud = (Student) temp.getStudentList().getStudent(x);
+                    output += tempStud.getadminNum()+","+tempStud.getName()+","+tempStud.getCourse()+","+tempStud.getGender()+",";
                 }
                 printWriter.println(output);
             }

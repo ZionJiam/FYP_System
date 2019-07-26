@@ -426,9 +426,10 @@ public class editProjectForm extends javax.swing.JFrame {
             try
             {
                 if(project.equals(temp.getTitle())){
-                System.out.println("OI");
-             for(int x =0 ; x < temp.getStudent().length;x++)
-                 demoList.addElement(temp.getStudent()[x].getName());
+             for(int x =0 ; x < temp.getStudentList().getNumOfStudents();x++){
+                 Student tempStud = (Student) temp.getStudentList().getStudent(x);
+                 demoList.addElement(tempStud.getName());
+             }
              titleBox.setText(temp.getTitle());
              schoolBox.setText(temp.getSchool());
              supervisorBox.setText(temp.getSupervisor());
@@ -444,14 +445,15 @@ public class editProjectForm extends javax.swing.JFrame {
                         ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
                   for(int i = 0 ; i < studentProject.getNumOfProjects();i++){
             Project temp = (Project) studentProject.getProject(i);
-                    for(int x=0; x<temp.getStudent().length;x++){
+                    for(int x=0; x<temp.getStudentList().getNumOfStudents();x++){
+                         Student tempStud = (Student) temp.getStudentList().getStudent(x);
                         try
                         {
-            if(student.equals(temp.getStudent()[x].getName())){
-             nameBox.setText(temp.getStudent()[x].getName());
-             adminBox.setText(temp.getStudent()[x].getadminNum());
-             courseBox.setText(temp.getStudent()[x].getCourse());
-            if(temp.getStudent()[x].getGender() == 'M'){
+            if(student.equals(tempStud.getName())){
+             nameBox.setText(tempStud.getName());
+             adminBox.setText(tempStud.getadminNum());
+             courseBox.setText(tempStud.getCourse());
+            if(tempStud.getGender() == 'M'){
                 maleButton.setSelected(true);
             }
             else femaleButton.setSelected(true);
@@ -499,17 +501,18 @@ public class editProjectForm extends javax.swing.JFrame {
         
         String selectedProjectValue = projectList.getSelectedValue();
         String selectedStudentValue = studentList.getSelectedValue();
-                ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
+        ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
         for(int i = 0 ; i < studentProject.getNumOfProjects();i++){
             Project temp = (Project) studentProject.getProject(i);
             if(selectedProjectValue.equals(temp.getTitle())){
-                for(int x=0;x<temp.getStudent().length;x++){
-                    if(selectedStudentValue.equals(temp.getStudent()[x].getName()))
+                for(int x=0;x<temp.getStudentList().getNumOfStudents();x++){
+                    Student tempStud = (Student) temp.getStudentList().getStudent(x);
+                    if(selectedStudentValue.equals(tempStud.getName()))
                     {
-                        temp.getStudent()[x].setName(name);
-                        temp.getStudent()[x].setadminNum(admin);
-                        temp.getStudent()[x].setCourse(course);
-                        temp.getStudent()[x].setGender(gender.charAt(0));
+                        tempStud.setName(name);
+                        tempStud.setadminNum(admin);
+                        tempStud.setCourse(course);
+                        tempStud.setGender(gender.charAt(0));
                         ProjectFile.saveDesiredOutput(studentProject);
                     }
                 }
@@ -531,7 +534,25 @@ public class editProjectForm extends javax.swing.JFrame {
     group.clearSelection();
     }
     private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
-        // TODO add your handling code here:
+        ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
+        String selectedStudentValue = studentList.getSelectedValue();
+        String selectedProjectValue = projectList.getSelectedValue();
+        for(int i = 0 ; i < studentProject.getNumOfProjects();i++){
+            Project temp = (Project) studentProject.getProject(i);
+            if(selectedProjectValue.equals(temp.getTitle())){
+                for(int x=0;x<temp.getStudentList().getNumOfStudents();x++){
+                    Student tempStud = (Student) temp.getStudentList().getStudent(x);
+                    if(selectedStudentValue.equals(tempStud.getName()))
+                    {
+                        temp.getStudentList().removeStudent(x);
+                        System.out.println("done");
+                        System.out.println(tempStud.getName());
+                        ProjectFile.saveDesiredOutput(studentProject);
+                    }
+                }
+                setupForm();
+            }
+        }
     }//GEN-LAST:event_removeButtonActionPerformed
 
     private void addStudentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addStudentButtonActionPerformed
@@ -550,7 +571,7 @@ public class editProjectForm extends javax.swing.JFrame {
         for(int i =0 ; i<studentProject.getNumOfProjects();i++){
             Project temp = (Project) studentProject.getProject(i);
             if(selectedProjectValue.equals(temp.getTitle())){
-                temp.addStudent(newStudent);
+                temp.getStudentList().addStudent(newStudent);
                 ProjectFile.saveDesiredOutput(studentProject);
             }
         }

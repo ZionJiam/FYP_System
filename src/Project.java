@@ -4,27 +4,20 @@ import java.util.List;
 
 public class Project implements Serializable{
     
-    private Student[] student;
+    private StudentCollection student;
     private String title, school, supervisor;
     
-    public Project(Student[]student, String title, String school, String supervisor) {        
+    public Project(StudentCollection student, String title, String school, String supervisor) {        
         this.student = student;
         this.title = title;
         this.school = school;
         this.supervisor = supervisor;
     }
     
-    public Student[] getStudent(){
+    public StudentCollection getStudentList(){
         return student;
     }
     
-    public void addStudent(Student input){
-        Student [] newArr = new Student [student.length+1];
-        System.arraycopy(student, 0, newArr, 0, student.length);
-        newArr[newArr.length-1] = input;
-        this.student = newArr;
-    }
-
     public void setTitle(String title) {
         this.title = title;
     }
