@@ -33,6 +33,8 @@ public class EventCollection implements Serializable {
                 addEvent(evt);
             }    
             inStream.close();
+        }catch(FileNotFoundException e){
+            
         } catch (Exception ex) {
             System.out.println("File does not exist, just create some with the program");
             ex.printStackTrace();
@@ -41,7 +43,7 @@ public class EventCollection implements Serializable {
         return evtCollection;
     }
 
-    public void writeFromFile() {
+    public void writeToFile() {
         File f = new File("C:\\Modules files\\Year 2\\Event.dat");
 
         try {
