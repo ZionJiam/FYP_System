@@ -279,9 +279,6 @@
           <Font name="Arial" size="18" style="0"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="schoolBoxActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="supervisorBox">
       <Properties>
@@ -303,9 +300,6 @@
           <Font name="Arial" size="18" style="0"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="adminBoxActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="nameLabel">
       <Properties>
@@ -508,9 +502,6 @@
               <Font name="Arial" size="18" style="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addAdminIdBoxActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="addFemaleButton">
           <Properties>

@@ -103,22 +103,12 @@ public class editProjectForm extends javax.swing.JFrame {
         titleBox.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
         schoolBox.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        schoolBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                schoolBoxActionPerformed(evt);
-            }
-        });
 
         supervisorBox.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
         nameBox.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
         adminBox.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        adminBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                adminBoxActionPerformed(evt);
-            }
-        });
 
         nameLabel.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         nameLabel.setText("Name");
@@ -172,11 +162,6 @@ public class editProjectForm extends javax.swing.JFrame {
         addNameBox.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
         addAdminIdBox.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        addAdminIdBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addAdminIdBoxActionPerformed(evt);
-            }
-        });
 
         addFemaleButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         addFemaleButton.setText("F");
@@ -403,18 +388,6 @@ public class editProjectForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void schoolBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schoolBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_schoolBoxActionPerformed
-
-    private void adminBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_adminBoxActionPerformed
-
-    private void addAdminIdBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAdminIdBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addAdminIdBoxActionPerformed
 
     private void projectListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_projectListValueChanged
                    nameBox.setText("");
