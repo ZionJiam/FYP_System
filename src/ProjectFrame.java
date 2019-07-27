@@ -400,7 +400,7 @@ public class ProjectFrame extends javax.swing.JFrame {
     private void searchInputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchInputKeyPressed
         ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
         String search = searchInput.getText();
-        for(int i=0; i<studentProject.getNumOfProjects();i++){
+        for (int i = 0; i < studentProject.getNumOfProjects(); i++) {
 
         }
     }//GEN-LAST:event_searchInputKeyPressed
@@ -450,8 +450,8 @@ public class ProjectFrame extends javax.swing.JFrame {
             } // Error Message when not printed
         } else {
             JOptionPane.showMessageDialog(null,
-                "No project was selected, Please try again", "ERROR",
-                JOptionPane.ERROR_MESSAGE); //Successful Message when printed
+                    "No project was selected, Please try again", "ERROR",
+                    JOptionPane.ERROR_MESSAGE); //Successful Message when printed
         }
     }//GEN-LAST:event_printButtonActionPerformed
 
@@ -459,21 +459,29 @@ public class ProjectFrame extends javax.swing.JFrame {
     private static void setLabels(String school) {
         ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
         DefaultListModel demoList = new DefaultListModel();
-        for (int x = 0, num=1; x < studentProject.getNumOfProjects(); x++) {
-            Project temp = (Project) studentProject.getProject(x);
-             demoList.addElement("Project "+num+": "+temp.getTitle());
-             num++;
-        }
-        //Set labels for project name, school and supervisor
-        for (int x = 0, num=1; x < studentProject.getNumOfProjects(); x++) {
-            Project temp = (Project) studentProject.getProject(x);
-            if (temp.getSchool().equals(school)) {
-             demoList.addElement("Project "+num+": "+temp.getTitle());
-             System.out.println("Project "+num+": "+temp.getTitle());
-             num++;
-             TestprojectList.setModel(demoList);
+
+        if (school.equals("Any")) {
+            for (int x = 0, num = 1; x < studentProject.getNumOfProjects(); x++) {
+                Project temp = (Project) studentProject.getProject(x);
+                //System.out.println("Project " + num + ": " + temp.getTitle() + "<<<");
+                demoList.addElement("Project " + num + ": " + temp.getTitle());
+                num++;
             }
+        } else {
+            //Set labels for project name, school and supervisor
+            for (int x = 0, num = 1; x < studentProject.getNumOfProjects(); x++) {
+                Project temp = (Project) studentProject.getProject(x);
+                if (temp.getSchool().equals(school)) {
+                    demoList.addElement("Project " + num + ": " + temp.getTitle());
+                    System.out.println("Project " + num + ": " + temp.getTitle());
+                    num++;
+
+                }
+            }
+
         }
+
+        TestprojectList.setModel(demoList);
     }
 
     private Icon getIcon(String substring) {
@@ -535,7 +543,7 @@ public class ProjectFrame extends javax.swing.JFrame {
         schoolComboBox.removeAllItems();
         schoolComboBox.addItem("Any");
         List<String> newList = new ArrayList<>();
-        
+
         for (int i = 0; i < allStudents.getNumOfProjects(); i++) {
             Project temp = (Project) allStudents.getProject(i);
             if (!newList.contains(temp.getSchool())) {
@@ -544,8 +552,8 @@ public class ProjectFrame extends javax.swing.JFrame {
             }
         }
     }
-    
-    public static void populateComboBoxes(){
+
+    public static void populateComboBoxes() {
         ProjectCollection allStudents = ProjectFile.extractProjectDataFromFile();
         populateProjects(allStudents);
         populateSchools(allStudents);
@@ -553,11 +561,12 @@ public class ProjectFrame extends javax.swing.JFrame {
 
     //Main method calls for methods to populate the combo boxes at the start of the program
     public static void main(String[] args) {
-        populateComboBoxes();
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ProjectFrame().setVisible(true);
+                populateComboBoxes();
             }
         });
     }
