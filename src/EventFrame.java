@@ -29,7 +29,7 @@ public class EventFrame extends javax.swing.JFrame {
         eventList = new javax.swing.JList<>();
         addNewStudentLabel1 = new javax.swing.JLabel();
         selectedProject = new javax.swing.JLabel();
-        saveEvent = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         evtDetailBox = new javax.swing.JTextArea();
         addNewStudentLabel2 = new javax.swing.JLabel();
@@ -37,6 +37,7 @@ public class EventFrame extends javax.swing.JFrame {
         addNewStudentLabel3 = new javax.swing.JLabel();
         addProjectBox = new javax.swing.JTextField();
         registerEvent = new javax.swing.JButton();
+        saveEvent1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,11 +81,11 @@ public class EventFrame extends javax.swing.JFrame {
 
         selectedProject.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
 
-        saveEvent.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        saveEvent.setText("Save Events");
-        saveEvent.addActionListener(new java.awt.event.ActionListener() {
+        backButton.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveEventActionPerformed(evt);
+                backButtonActionPerformed(evt);
             }
         });
 
@@ -107,6 +108,14 @@ public class EventFrame extends javax.swing.JFrame {
         registerEvent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerEventActionPerformed(evt);
+            }
+        });
+
+        saveEvent1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        saveEvent1.setText("Save Events");
+        saveEvent1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveEvent1ActionPerformed(evt);
             }
         });
 
@@ -139,19 +148,18 @@ public class EventFrame extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(eventTitleBox, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
                             .addComponent(toEventBox, javax.swing.GroupLayout.Alignment.LEADING))))
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(saveEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(134, 134, 134))
+                    .addComponent(jLabel2)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel2))
-                        .addContainerGap(61, Short.MAX_VALUE))))
+                        .addGap(6, 6, 6)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(saveEvent1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,9 +196,11 @@ public class EventFrame extends javax.swing.JFrame {
                             .addComponent(registerEvent)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(saveEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(saveEvent1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         pack();
@@ -227,10 +237,12 @@ public class EventFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_addProjectActionPerformed
 
-    private void saveEventActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveEventActionPerformed
-        // Save  === write to file
-        evtCollection.writeFromFile();
-    }//GEN-LAST:event_saveEventActionPerformed
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        EventFrame.this.setVisible(false);
+        new ProjectFrame().setVisible(true);
+        ProjectFrame.populateComboBoxes();
+        ProjectFrame.resetLabels();
+    }//GEN-LAST:event_backButtonActionPerformed
 
     private void projectListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_projectListValueChanged
         String project = projectList.getSelectedValue();
@@ -262,6 +274,11 @@ public class EventFrame extends javax.swing.JFrame {
             eventList.setModel(evtDemoList);
         }
     }//GEN-LAST:event_registerEventActionPerformed
+
+    private void saveEvent1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveEvent1ActionPerformed
+        // Save  === write to file
+        evtCollection.writeToFile();
+    }//GEN-LAST:event_saveEvent1ActionPerformed
 
     public static void setupForm() {
         // Project
@@ -320,6 +337,7 @@ public class EventFrame extends javax.swing.JFrame {
     private javax.swing.JLabel addNewStudentLabel3;
     private javax.swing.JButton addProject;
     private javax.swing.JTextField addProjectBox;
+    private javax.swing.JButton backButton;
     private static javax.swing.JList<String> eventList;
     private javax.swing.JTextField eventTitleBox;
     private static javax.swing.JTextArea evtDetailBox;
@@ -331,7 +349,7 @@ public class EventFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private static javax.swing.JList<String> projectList;
     private javax.swing.JButton registerEvent;
-    private javax.swing.JButton saveEvent;
+    private javax.swing.JButton saveEvent1;
     private javax.swing.JLabel selectedProject;
     private javax.swing.JTextField toEventBox;
     // End of variables declaration//GEN-END:variables
