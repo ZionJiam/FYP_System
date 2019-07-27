@@ -3,6 +3,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import javax.swing.DefaultListModel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -35,81 +36,49 @@ public class ProjectFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        img3 = new javax.swing.JLabel();
-        img2 = new javax.swing.JLabel();
-        img1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        studentInfo = new javax.swing.JTextArea();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         printButton = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         statButton = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        addButton = new javax.swing.JButton();
         eventButton = new javax.swing.JButton();
-        titleLabel = new javax.swing.JLabel();
-        supervisorLabel = new javax.swing.JLabel();
-        schoolLabel = new javax.swing.JLabel();
+        addButton = new javax.swing.JButton();
+        FYPSystemPanel = new javax.swing.JPanel();
+        FYPSystemLogo = new javax.swing.JLabel();
+        sortingPane = new javax.swing.JPanel();
+        searchInput = new javax.swing.JTextField();
+        searchLabel = new javax.swing.JLabel();
+        sortingSchoolLabel = new javax.swing.JLabel();
+        projectLabel = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TestprojectList = new javax.swing.JList<>();
+        studentPanel = new javax.swing.JPanel();
+        studentPicture = new javax.swing.JLabel();
+        studentAdminTextField = new javax.swing.JTextField();
+        studentCourseTextField = new javax.swing.JTextField();
+        studentNameTextField = new javax.swing.JTextField();
+        studentNameLabel = new javax.swing.JLabel();
+        studentAdminLabel = new javax.swing.JLabel();
+        studentCourseLabel = new javax.swing.JLabel();
+        studentGenderLabel = new javax.swing.JLabel();
+        studentGenderTextField = new javax.swing.JTextField();
+        projectPanel = new javax.swing.JPanel();
+        projectSchoolLabel = new javax.swing.JLabel();
+        projectTitleLabel = new javax.swing.JLabel();
+        projectSupervisor = new javax.swing.JLabel();
+        projectStudentsLabel = new javax.swing.JLabel();
+        projectTitleTextField = new javax.swing.JTextField();
+        projectSupervisorTextField = new javax.swing.JTextField();
+        projectSchoolTextField = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        studentList = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 102, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        jLabel3.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel3.setText("Students:");
-
-        jLabel5.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel5.setText("Supervisor:");
-
-        jLabel7.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel7.setText("School:");
-
-        jLabel8.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel8.setText("Title:");
-
-        studentInfo.setBackground(new java.awt.Color(240, 240, 240));
-        studentInfo.setColumns(20);
-        studentInfo.setFont(new java.awt.Font("Calibri", 0, 23)); // NOI18N
-        studentInfo.setRows(5);
-        studentInfo.setBorder(null);
-        jScrollPane1.setViewportView(studentInfo);
-        jScrollPane1.setBorder(null);
-        studentInfo.setEditable(false);
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Final Year Project System", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 24))); // NOI18N
-
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 21)); // NOI18N
-        jLabel1.setText("Projects");
-
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 21)); // NOI18N
-        jLabel2.setText("School");
-
-        schoolComboBox.setFont(new java.awt.Font("Arial", 0, 21)); // NOI18N
-        schoolComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                schoolComboBoxActionPerformed(evt);
-            }
-        });
 
         printButton.setFont(new java.awt.Font("Calibri", 0, 22)); // NOI18N
         printButton.setText("Save");
         printButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 printButtonActionPerformed(evt);
-            }
-        });
-
-        projectComboBox.setFont(new java.awt.Font("Tahoma", 0, 21)); // NOI18N
-        projectComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                projectComboBoxActionPerformed(evt);
             }
         });
 
@@ -121,10 +90,13 @@ public class ProjectFrame extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-
-        jLabel9.setFont(new java.awt.Font("Arial", 0, 21)); // NOI18N
-        jLabel9.setText("Search");
+        eventButton.setFont(new java.awt.Font("Calibri", 0, 22)); // NOI18N
+        eventButton.setText("Register Event");
+        eventButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eventButtonActionPerformed(evt);
+            }
+        });
 
         addButton.setFont(new java.awt.Font("Calibri", 0, 22)); // NOI18N
         addButton.setText("Edit Project");
@@ -134,84 +106,234 @@ public class ProjectFrame extends javax.swing.JFrame {
             }
         });
 
-        eventButton.setFont(new java.awt.Font("Calibri", 0, 22)); // NOI18N
-        eventButton.setText("Register Event");
-        eventButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eventButtonActionPerformed(evt);
+        FYPSystemPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        FYPSystemLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Logo.png"))); // NOI18N
+
+        javax.swing.GroupLayout FYPSystemPanelLayout = new javax.swing.GroupLayout(FYPSystemPanel);
+        FYPSystemPanel.setLayout(FYPSystemPanelLayout);
+        FYPSystemPanelLayout.setHorizontalGroup(
+            FYPSystemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FYPSystemPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(FYPSystemLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        FYPSystemPanelLayout.setVerticalGroup(
+            FYPSystemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FYPSystemPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(FYPSystemLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 810, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        sortingPane.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Sorting", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 21))); // NOI18N
+
+        searchInput.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        searchInput.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                searchInputKeyPressed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
+        searchLabel.setFont(new java.awt.Font("Arial", 0, 21)); // NOI18N
+        searchLabel.setText("Search");
+
+        sortingSchoolLabel.setFont(new java.awt.Font("Arial", 0, 21)); // NOI18N
+        sortingSchoolLabel.setText("School");
+
+        projectLabel.setFont(new java.awt.Font("Arial", 0, 21)); // NOI18N
+        projectLabel.setText("Projects");
+
+        schoolComboBox.setFont(new java.awt.Font("Tahoma", 0, 21)); // NOI18N
+        schoolComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                schoolComboBoxActionPerformed(evt);
+            }
+        });
+
+        jScrollPane1.setViewportView(TestprojectList);
+
+        javax.swing.GroupLayout sortingPaneLayout = new javax.swing.GroupLayout(sortingPane);
+        sortingPane.setLayout(sortingPaneLayout);
+        sortingPaneLayout.setHorizontalGroup(
+            sortingPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sortingPaneLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(sortingPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(sortingPaneLayout.createSequentialGroup()
+                        .addComponent(sortingSchoolLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(schoolComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(sortingPaneLayout.createSequentialGroup()
+                        .addComponent(searchLabel)
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(projectComboBox, 0, 154, Short.MAX_VALUE)
-                            .addComponent(schoolComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(31, 31, 31)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9)
-                            .addComponent(statButton, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(addButton)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(printButton, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
-                                .addComponent(eventButton)
-                                .addGap(35, 35, 35))))))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(projectComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(schoolComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(78, 78, 78)
-                .addComponent(jLabel4)
+                        .addGroup(sortingPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(projectLabel)
+                            .addComponent(searchInput, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(38, 38, 38))
+            .addGroup(sortingPaneLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel9)
-                    .addComponent(eventButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(statButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(printButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        sortingPaneLayout.setVerticalGroup(
+            sortingPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sortingPaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(sortingPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sortingSchoolLabel)
+                    .addComponent(schoolComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addGroup(sortingPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchInput, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchLabel))
+                .addGap(25, 25, 25)
+                .addComponent(projectLabel)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        titleLabel.setFont(new java.awt.Font("Arial", 0, 21)); // NOI18N
+        studentPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Student Information", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 21))); // NOI18N
 
-        supervisorLabel.setFont(new java.awt.Font("Arial", 0, 21)); // NOI18N
+        studentPicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Default.png"))); // NOI18N
 
-        schoolLabel.setFont(new java.awt.Font("Arial", 0, 21)); // NOI18N
+        studentNameLabel.setFont(new java.awt.Font("Arial", 0, 21)); // NOI18N
+        studentNameLabel.setText("Name");
+
+        studentAdminLabel.setFont(new java.awt.Font("Arial", 0, 21)); // NOI18N
+        studentAdminLabel.setText("Admin ID");
+
+        studentCourseLabel.setFont(new java.awt.Font("Arial", 0, 21)); // NOI18N
+        studentCourseLabel.setText("Course");
+
+        studentGenderLabel.setFont(new java.awt.Font("Arial", 0, 21)); // NOI18N
+        studentGenderLabel.setText("Gender");
+
+        javax.swing.GroupLayout studentPanelLayout = new javax.swing.GroupLayout(studentPanel);
+        studentPanel.setLayout(studentPanelLayout);
+        studentPanelLayout.setHorizontalGroup(
+            studentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, studentPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(studentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(studentAdminLabel)
+                    .addComponent(studentNameLabel)
+                    .addComponent(studentCourseLabel)
+                    .addComponent(studentGenderLabel))
+                .addGap(48, 48, 48)
+                .addGroup(studentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(studentPanelLayout.createSequentialGroup()
+                        .addComponent(studentGenderTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(studentPanelLayout.createSequentialGroup()
+                        .addGroup(studentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(studentCourseTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(studentAdminTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(studentNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                        .addComponent(studentPicture)
+                        .addGap(76, 76, 76))))
+        );
+        studentPanelLayout.setVerticalGroup(
+            studentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(studentPanelLayout.createSequentialGroup()
+                .addGroup(studentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(studentPanelLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(studentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(studentNameLabel)
+                            .addComponent(studentNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(studentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(studentAdminLabel)
+                            .addComponent(studentAdminTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(studentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(studentCourseLabel)
+                            .addComponent(studentCourseTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, studentPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(studentPicture)))
+                .addGap(18, 18, 18)
+                .addGroup(studentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(studentGenderTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(studentGenderLabel))
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
+
+        projectPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Project Information", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 21))); // NOI18N
+
+        projectSchoolLabel.setFont(new java.awt.Font("Arial", 0, 21)); // NOI18N
+        projectSchoolLabel.setText("School");
+
+        projectTitleLabel.setFont(new java.awt.Font("Arial", 0, 21)); // NOI18N
+        projectTitleLabel.setText("Title");
+
+        projectSupervisor.setFont(new java.awt.Font("Arial", 0, 21)); // NOI18N
+        projectSupervisor.setText("Supervisor");
+
+        projectStudentsLabel.setFont(new java.awt.Font("Arial", 0, 21)); // NOI18N
+        projectStudentsLabel.setText("Students");
+
+        jScrollPane2.setViewportView(studentList);
+
+        javax.swing.GroupLayout projectPanelLayout = new javax.swing.GroupLayout(projectPanel);
+        projectPanel.setLayout(projectPanelLayout);
+        projectPanelLayout.setHorizontalGroup(
+            projectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(projectPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(projectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(projectPanelLayout.createSequentialGroup()
+                        .addGroup(projectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(projectTitleLabel)
+                            .addComponent(projectSchoolLabel))
+                        .addGap(55, 55, 55)
+                        .addGroup(projectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(projectTitleTextField)
+                            .addComponent(projectSchoolTextField)))
+                    .addGroup(projectPanelLayout.createSequentialGroup()
+                        .addComponent(projectSupervisor)
+                        .addGap(18, 18, 18)
+                        .addComponent(projectSupervisorTextField)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, projectPanelLayout.createSequentialGroup()
+                .addContainerGap(112, Short.MAX_VALUE)
+                .addComponent(projectStudentsLabel)
+                .addGap(110, 110, 110))
+            .addGroup(projectPanelLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        projectPanelLayout.setVerticalGroup(
+            projectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(projectPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(projectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(projectSchoolTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, projectPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 5, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(projectSchoolLabel)))
+                .addGap(18, 18, 18)
+                .addGroup(projectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(projectPanelLayout.createSequentialGroup()
+                        .addComponent(projectTitleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, projectPanelLayout.createSequentialGroup()
+                        .addComponent(projectTitleLabel)
+                        .addGap(18, 18, 18)))
+                .addGroup(projectPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(projectSupervisorTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(projectSupervisor))
+                .addGap(18, 18, 18)
+                .addComponent(projectStudentsLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -220,67 +342,68 @@ public class ProjectFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(titleLabel)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(144, 144, 144)
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(schoolLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(supervisorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(48, 48, 48)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(img1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(img3, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(img2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(45, Short.MAX_VALUE))
+                        .addComponent(addButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(printButton, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(eventButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(statButton, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(studentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(sortingPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(projectPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(FYPSystemPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(schoolLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(supervisorLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel8)
-                        .addComponent(titleLabel)
-                        .addComponent(jLabel7)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel3)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(22, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(img1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sortingPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(projectPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(img2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(img3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(155, 155, 155))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(eventButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(printButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(statButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addComponent(studentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(FYPSystemPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void eventButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eventButtonActionPerformed
+
+        new EventFrame().setVisible(true);
+        EventFrame.setupForm();
+        this.setVisible(false);
+    }//GEN-LAST:event_eventButtonActionPerformed
+
+    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
+
+        new editProjectForm().setVisible(true);
+        editProjectForm.setupForm();
+        this.setVisible(false);
+    }//GEN-LAST:event_addButtonActionPerformed
+
+    private void searchInputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchInputKeyPressed
+        ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
+        String search = searchInput.getText();
+        for(int i=0; i<studentProject.getNumOfProjects();i++){
+
+        }
+    }//GEN-LAST:event_searchInputKeyPressed
 
     private void statButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statButtonActionPerformed
         ProjectStatisticsFrame projStats = new ProjectStatisticsFrame();
@@ -289,16 +412,15 @@ public class ProjectFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_statButtonActionPerformed
 
     //For every selection of Projects in the combo box, change the details in the Information text box
-    private void projectComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projectComboBoxActionPerformed
+    private void schoolComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schoolComboBoxActionPerformed
         //For every change to projectComboBox, change textbox information
         resetIcons();
         String info = "";
         try {
-            info = setLabels(projectComboBox.getSelectedItem().toString());
+            setLabels(schoolComboBox.getSelectedItem().toString());
         } catch (NullPointerException e) {
         }
-        studentInfo.setText(info);
-    }//GEN-LAST:event_projectComboBoxActionPerformed
+    }//GEN-LAST:event_schoolComboBoxActionPerformed
 
     //Print button pressed, output file created in file directory as output.txt
     private void printButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printButtonActionPerformed
@@ -306,8 +428,8 @@ public class ProjectFrame extends javax.swing.JFrame {
         ProjectCollection projectList = null;
         boolean hasSelected = false;
         //Validate for no selection of project from user
-        if (projectComboBox.getSelectedItem() != null) {
-            comboVal = projectComboBox.getSelectedItem().toString();
+        if (schoolComboBox.getSelectedItem() != null) {
+            comboVal = schoolComboBox.getSelectedItem().toString();
             projectList = ProjectFile.extractProjectDataFromFile();
             hasSelected = true;
         }
@@ -328,98 +450,30 @@ public class ProjectFrame extends javax.swing.JFrame {
             } // Error Message when not printed
         } else {
             JOptionPane.showMessageDialog(null,
-                    "No project was selected, Please try again", "ERROR",
-                    JOptionPane.ERROR_MESSAGE); //Successful Message when printed
+                "No project was selected, Please try again", "ERROR",
+                JOptionPane.ERROR_MESSAGE); //Successful Message when printed
         }
     }//GEN-LAST:event_printButtonActionPerformed
 
-    //For every change in school selected, change the Projects Combo box for selection
-    private void schoolComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schoolComboBoxActionPerformed
-        resetIcons();
-       try{ String school = schoolComboBox.getSelectedItem().toString();
-        List<Project> projectList;
-        List<String> newList = new ArrayList<>();
-        //Add projects into projectComboBox based on selected school
-        projectList = userSearchResult(school);
-        projectComboBox.removeAllItems();
-
-        for (int i = 0; i < projectList.size(); i++) {
-            if (!newList.contains(projectList.get(i).getTitle())) {
-                newList.add(projectList.get(i).getTitle());
-                projectComboBox.addItem(projectList.get(i).getTitle());
-            }
-        }
-       }catch(NullPointerException ex){};
-
-        //Make textbox and combobox empty for every change
-        projectComboBox.setSelectedIndex(-1);
-        resetLabels();
-    }//GEN-LAST:event_schoolComboBoxActionPerformed
-
-    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-
-        new editProjectForm().setVisible(true);
-                editProjectForm.setupForm();
-        this.setVisible(false);
-    }//GEN-LAST:event_addButtonActionPerformed
-
-    private void eventButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eventButtonActionPerformed
-
-        new EventFrame().setVisible(true);
-        EventFrame.setupForm();
-        this.setVisible(false);
-    }//GEN-LAST:event_eventButtonActionPerformed
-
 //Set labels for display for each respective labels
-    private String setLabels(String project) {
-        resetIcons();
-        String studInfo = "";
+    private static void setLabels(String school) {
         ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
-        boolean change = false; //Boolean to properly format names of student
-        //Set labels for project name, school and supervisor
-        for (int x = 0; x < studentProject.getNumOfProjects(); x++) {
+        DefaultListModel demoList = new DefaultListModel();
+        for (int x = 0, num=1; x < studentProject.getNumOfProjects(); x++) {
             Project temp = (Project) studentProject.getProject(x);
-            if (temp.getTitle().equals(project) && change == false) {
-                StudentCollection tempp = temp.getStudentList();
-                titleLabel.setText(temp.getTitle());
-                schoolLabel.setText(temp.getSchool());
-                supervisorLabel.setText(temp.getSupervisor());
-                for (int i = 0; i < tempp.getNumOfStudents(); i++) {
-                    Student tempStud = (Student) temp.getStudentList().getStudent(i);
-                    if (change == false) {
-                        //set textbox for students information
-                        studInfo += tempStud.displayStudentInfo();
-                        change = true;
-                    } else {
-                        studInfo += tempStud.displayStudentInfo();
-                    }
-                }
-            for (int i = 0; i < studentProject.getNumOfProjects(); i++) {
-                Project temp2 = (Project) studentProject.getProject(i);
-                if (temp2.getTitle().equals(project)) {
-                    for (int y = 0; y < temp2.getStudentList().getNumOfStudents(); y++) {
-                        Student tempStud = (Student) temp.getStudentList().getStudent(y);
-                        try {
-                            switch (y) {
-                                case 0:
-                                    img1.setIcon(getIcon(tempStud.getadminNum()));
-                                    break;
-                                case 1:
-                                    img2.setIcon(getIcon(tempStud.getadminNum()));
-                                    break;
-                                case 2:
-                                    img3.setIcon(getIcon(tempStud.getadminNum()));
-                                    break;
-                            }
-                        } catch (Exception ex) {
-                        }
-                    }
-                }
-            }
+             demoList.addElement("Project "+num+": "+temp.getTitle());
+             num++;
+        }
+        //Set labels for project name, school and supervisor
+        for (int x = 0, num=1; x < studentProject.getNumOfProjects(); x++) {
+            Project temp = (Project) studentProject.getProject(x);
+            if (temp.getSchool().equals(school)) {
+             demoList.addElement("Project "+num+": "+temp.getTitle());
+             System.out.println("Project "+num+": "+temp.getTitle());
+             num++;
+             TestprojectList.setModel(demoList);
             }
         }
-        //return student information to set textbox
-        return studInfo;
     }
 
     private Icon getIcon(String substring) {
@@ -440,18 +494,11 @@ public class ProjectFrame extends javax.swing.JFrame {
     }
 
     private void resetIcons() {
-        img1.setIcon(null);
-        img2.setIcon(null);
-        img3.setIcon(null);
+
     }
 
     public static void resetLabels() {
-        titleLabel.setText("");
-        schoolLabel.setText("");
-        supervisorLabel.setText("");
-        img1.setIcon(null);
-        img2.setIcon(null);
-        img3.setIcon(null);
+
     }
 
     // Return List object of user chosen School
@@ -480,17 +527,7 @@ public class ProjectFrame extends javax.swing.JFrame {
 
     //Method to populate the Projects ComboBox
     public static void populateProjects(ProjectCollection allStudents) {
-        List<String> newList = new ArrayList<>();
-        projectComboBox.removeAllItems();
-        for (int i = 0; i < allStudents.getNumOfProjects(); i++) {
-            Project temp = (Project) allStudents.getProject(i);
-            if (!newList.contains(temp.getTitle())) {
-                newList.add(temp.getTitle());
-                projectComboBox.addItem(temp.getTitle());
-            }
-            //Make combo box empty
-            projectComboBox.setSelectedIndex(-1);
-        }
+        setLabels("Any");
     }
 //Method to populate the School ComboBox
 
@@ -529,29 +566,39 @@ public class ProjectFrame extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel FYPSystemLogo;
+    private javax.swing.JPanel FYPSystemPanel;
+    private static javax.swing.JList<String> TestprojectList;
     private javax.swing.JButton addButton;
     private javax.swing.JButton eventButton;
-    private static javax.swing.JLabel img1;
-    private static javax.swing.JLabel img2;
-    private static javax.swing.JLabel img3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private static javax.swing.JLabel jLabel5;
-    private static javax.swing.JLabel jLabel7;
-    private static javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton printButton;
-    private static final javax.swing.JComboBox<String> projectComboBox = new javax.swing.JComboBox<>();
+    private javax.swing.JLabel projectLabel;
+    private javax.swing.JPanel projectPanel;
+    private javax.swing.JLabel projectSchoolLabel;
+    private javax.swing.JTextField projectSchoolTextField;
+    private javax.swing.JLabel projectStudentsLabel;
+    private javax.swing.JLabel projectSupervisor;
+    private javax.swing.JTextField projectSupervisorTextField;
+    private javax.swing.JLabel projectTitleLabel;
+    private javax.swing.JTextField projectTitleTextField;
     private static final javax.swing.JComboBox<String> schoolComboBox = new javax.swing.JComboBox<>();
-    private static javax.swing.JLabel schoolLabel;
+    private javax.swing.JTextField searchInput;
+    private javax.swing.JLabel searchLabel;
+    private javax.swing.JPanel sortingPane;
+    private javax.swing.JLabel sortingSchoolLabel;
     private javax.swing.JButton statButton;
-    private javax.swing.JTextArea studentInfo;
-    private static javax.swing.JLabel supervisorLabel;
-    private static javax.swing.JLabel titleLabel;
+    private javax.swing.JLabel studentAdminLabel;
+    private javax.swing.JTextField studentAdminTextField;
+    private javax.swing.JLabel studentCourseLabel;
+    private javax.swing.JTextField studentCourseTextField;
+    private javax.swing.JLabel studentGenderLabel;
+    private javax.swing.JTextField studentGenderTextField;
+    private static javax.swing.JList<String> studentList;
+    private javax.swing.JLabel studentNameLabel;
+    private javax.swing.JTextField studentNameTextField;
+    private javax.swing.JPanel studentPanel;
+    private javax.swing.JLabel studentPicture;
     // End of variables declaration//GEN-END:variables
 }

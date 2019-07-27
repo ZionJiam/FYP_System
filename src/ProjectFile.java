@@ -63,7 +63,7 @@ public class ProjectFile {
                     k += 4;
                 }
                 project[i] = new Project(studentsList, title, school, supervisor);
-                System.out.println("Initialising :"+project[i].getTitle());
+//                System.out.println("Initialising :"+project[i].getTitle());
                 output.addProject(project[i]);
             }
     
@@ -121,10 +121,10 @@ public class ProjectFile {
             printWriter.println(desiredOutput.getNumOfProjects());
             for( int i=0;i<desiredOutput.getNumOfProjects();i++){
                 Project temp = (Project) desiredOutput.getProject(i);
-                String output = temp.getTitle()+","+temp.getSchool()+","+temp.getSupervisor()+","+temp.getStudentList().getNumOfStudents()+",";
+                String output = temp.getTitle()+","+temp.getSchool()+","+temp.getSupervisor()+","+temp.getStudentList().getNumOfStudents();
                 for(int x=0;x<temp.getStudentList().getNumOfStudents();x++){
                     Student tempStud = (Student) temp.getStudentList().getStudent(x);
-                    output += tempStud.getadminNum()+","+tempStud.getName()+","+tempStud.getCourse()+","+tempStud.getGender()+",";
+                    output += ","+tempStud.getadminNum()+","+tempStud.getName()+","+tempStud.getCourse()+","+tempStud.getGender();
                 }
                 printWriter.println(output);
             }
