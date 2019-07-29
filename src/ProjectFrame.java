@@ -501,7 +501,7 @@ public class ProjectFrame extends javax.swing.JFrame {
             }
             }
                      studentList.setModel(demoList);
-            }catch(NullPointerException ex){System.out.println("Error");}
+            }catch(NullPointerException ex){}
     }//GEN-LAST:event_projectListValueChanged
 
     private void studentListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_studentListValueChanged
