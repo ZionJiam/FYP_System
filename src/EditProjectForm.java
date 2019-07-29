@@ -13,12 +13,12 @@ import javax.swing.JOptionPane;
  *
  * @author 2014p
  */
-public class editProjectForm extends javax.swing.JFrame {
+public class EditProjectForm extends javax.swing.JFrame {
 
     /**
      * Creates new form editProjectForm
      */
-    public editProjectForm() {
+    public EditProjectForm() {
         initComponents();
     }
 
@@ -439,10 +439,10 @@ public class editProjectForm extends javax.swing.JFrame {
     }//GEN-LAST:event_studentListValueChanged
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        editProjectForm.this.setVisible(false);
+        EditProjectForm.this.setVisible(false);
         new ProjectFrame().setVisible(true);
         ProjectFrame.populateComboBoxes();
-        ProjectFrame.resetLabels();
+        ProjectFrame.resetTextFields();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void updateProjectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateProjectButtonActionPerformed
@@ -565,7 +565,7 @@ public class editProjectForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new editProjectForm().setVisible(true);
+                new EditProjectForm().setVisible(true);
             }
         });
     }

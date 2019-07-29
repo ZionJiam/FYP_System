@@ -205,10 +205,13 @@ public class ProjectFrame extends javax.swing.JFrame {
 
         studentPicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Default.png"))); // NOI18N
 
+        studentAdminTextField.setEditable(false);
         studentAdminTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
+        studentCourseTextField.setEditable(false);
         studentCourseTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
+        studentNameTextField.setEditable(false);
         studentNameTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
         studentNameLabel.setFont(new java.awt.Font("Arial", 0, 21)); // NOI18N
@@ -223,6 +226,7 @@ public class ProjectFrame extends javax.swing.JFrame {
         studentGenderLabel.setFont(new java.awt.Font("Arial", 0, 21)); // NOI18N
         studentGenderLabel.setText("Gender");
 
+        studentGenderTextField.setEditable(false);
         studentGenderTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout studentPanelLayout = new javax.swing.GroupLayout(studentPanel);
@@ -291,10 +295,13 @@ public class ProjectFrame extends javax.swing.JFrame {
         projectStudentsLabel.setFont(new java.awt.Font("Arial", 0, 21)); // NOI18N
         projectStudentsLabel.setText("Students");
 
+        projectTitleTextField.setEditable(false);
         projectTitleTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
+        projectSupervisorTextField.setEditable(false);
         projectSupervisorTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
+        projectSchoolTextField.setEditable(false);
         projectSchoolTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
         studentList.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -369,19 +376,20 @@ public class ProjectFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(addButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(printButton, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(eventButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(statButton, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(sortingPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(projectPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(studentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(studentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(addButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(eventButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(printButton, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(statButton, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(FYPSystemPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -398,8 +406,8 @@ public class ProjectFrame extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(eventButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(printButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(statButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(statButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(printButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(27, 27, 27)
                         .addComponent(studentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(FYPSystemPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -418,8 +426,8 @@ public class ProjectFrame extends javax.swing.JFrame {
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
 
-        new editProjectForm().setVisible(true);
-        editProjectForm.setupForm();
+        new EditProjectForm().setVisible(true);
+        EditProjectForm.setupForm();
         this.setVisible(false);
     }//GEN-LAST:event_addButtonActionPerformed
 
@@ -432,8 +440,6 @@ public class ProjectFrame extends javax.swing.JFrame {
     //For every selection of Projects in the combo box, change the details in the Information text box
     private void schoolComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schoolComboBoxActionPerformed
         //For every change to projectComboBox, change textbox information
-        resetIcons();
-        String info = "";
         try {
             setLabels(schoolComboBox.getSelectedItem().toString());
         } catch (NullPointerException e) {
@@ -474,15 +480,15 @@ public class ProjectFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_printButtonActionPerformed
 
     private void projectListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_projectListValueChanged
-
+            resetTextFields();
+        try
+            {
         ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
               String [] value = projectList.getSelectedValue().split(":");
               String project = value[1].substring(1);
               DefaultListModel demoList = new DefaultListModel();
         for(int i = 0 ; i < studentProject.getNumOfProjects();i++){          
             Project temp = (Project) studentProject.getProject(i);
-            try
-            {
                 if(project.equals(temp.getTitle())){
                     projectSchoolTextField.setText(temp.getSchool());
                     projectSupervisorTextField.setText(temp.getSupervisor());
@@ -493,9 +499,9 @@ public class ProjectFrame extends javax.swing.JFrame {
              }
              break;
             }
+            }
+                     studentList.setModel(demoList);
             }catch(NullPointerException ex){System.out.println("Error");}
-        }
-             studentList.setModel(demoList);
     }//GEN-LAST:event_projectListValueChanged
 
     private void studentListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_studentListValueChanged
@@ -521,7 +527,8 @@ public class ProjectFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_studentListValueChanged
 
     private void searchInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchInputActionPerformed
-       ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
+        resetTextFields();
+        ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
         String search = searchInput.getText();
         DefaultListModel demoList = new DefaultListModel();
             for (int x = 0, num = 1; x < studentProject.getNumOfProjects(); x++) {
@@ -570,18 +577,31 @@ public class ProjectFrame extends javax.swing.JFrame {
                 {
                     img = new ImageIcon("C:/Users/2014p/Documents/GitHub/FYP_System/src/img/" + fileName);
                 }
+                else img = new ImageIcon("C:/Users/2014p/Documents/GitHub/FYP_System/src/img/Default.png");
             }
         }
 
         return img; //return the list of filenames containing substring.
     }
 
-    private void resetIcons() {
-
-    }
-
-    public static void resetLabels() {
-
+    public static void resetTextFields() {
+        //Reset Project TextFields
+        projectSchoolTextField.setText("");
+        projectTitleTextField.setText("");
+        projectSupervisorTextField.setText("");
+        
+        //Reset Student TextFields
+        studentNameTextField.setText("");
+        studentAdminTextField.setText("");
+        studentCourseTextField.setText("");
+        studentGenderTextField.setText("");
+        
+        //Reset Label Image
+        studentPicture.setIcon(new ImageIcon("C:/Users/2014p/Documents/GitHub/FYP_System/src/img/Default.png"));
+        
+        DefaultListModel demoList = new DefaultListModel();
+        demoList.clear();
+        studentList.setModel(demoList);
     }
 
     // Return List object of user chosen School
@@ -661,12 +681,12 @@ public class ProjectFrame extends javax.swing.JFrame {
     private static javax.swing.JList<String> projectList;
     private javax.swing.JPanel projectPanel;
     private javax.swing.JLabel projectSchoolLabel;
-    private javax.swing.JTextField projectSchoolTextField;
+    private static javax.swing.JTextField projectSchoolTextField;
     private javax.swing.JLabel projectStudentsLabel;
     private javax.swing.JLabel projectSupervisor;
-    private javax.swing.JTextField projectSupervisorTextField;
+    private static javax.swing.JTextField projectSupervisorTextField;
     private javax.swing.JLabel projectTitleLabel;
-    private javax.swing.JTextField projectTitleTextField;
+    private static javax.swing.JTextField projectTitleTextField;
     private static final javax.swing.JComboBox<String> schoolComboBox = new javax.swing.JComboBox<>();
     private javax.swing.JTextField searchInput;
     private javax.swing.JLabel searchLabel;
@@ -674,15 +694,15 @@ public class ProjectFrame extends javax.swing.JFrame {
     private javax.swing.JLabel sortingSchoolLabel;
     private javax.swing.JButton statButton;
     private javax.swing.JLabel studentAdminLabel;
-    private javax.swing.JTextField studentAdminTextField;
+    private static javax.swing.JTextField studentAdminTextField;
     private javax.swing.JLabel studentCourseLabel;
-    private javax.swing.JTextField studentCourseTextField;
+    private static javax.swing.JTextField studentCourseTextField;
     private javax.swing.JLabel studentGenderLabel;
-    private javax.swing.JTextField studentGenderTextField;
+    private static javax.swing.JTextField studentGenderTextField;
     private static javax.swing.JList<String> studentList;
     private javax.swing.JLabel studentNameLabel;
-    private javax.swing.JTextField studentNameTextField;
+    private static javax.swing.JTextField studentNameTextField;
     private javax.swing.JPanel studentPanel;
-    private javax.swing.JLabel studentPicture;
+    private static javax.swing.JLabel studentPicture;
     // End of variables declaration//GEN-END:variables
 }

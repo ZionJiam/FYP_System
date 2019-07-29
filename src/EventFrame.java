@@ -241,7 +241,7 @@ public class EventFrame extends javax.swing.JFrame {
         EventFrame.this.setVisible(false);
         new ProjectFrame().setVisible(true);
         ProjectFrame.populateComboBoxes();
-        ProjectFrame.resetLabels();
+        ProjectFrame.resetTextFields();
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void projectListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_projectListValueChanged
