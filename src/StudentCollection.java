@@ -1,6 +1,3 @@
-
-import java.io.Serializable;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,7 +8,7 @@ import java.io.Serializable;
  *
  * @author 2014p
  */
-public class StudentCollection implements Serializable {
+public class StudentCollection  {
     private int currStudent;
     private LinkList studentList;
     
