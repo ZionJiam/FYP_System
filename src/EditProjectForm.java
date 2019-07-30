@@ -8,7 +8,6 @@ import javax.swing.JOptionPane;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author 2014p
@@ -31,7 +30,7 @@ public class EditProjectForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        projectLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         projectList = new javax.swing.JList<>();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -55,8 +54,8 @@ public class EditProjectForm extends javax.swing.JFrame {
         canvas1 = new java.awt.Canvas();
         updateStudentButton = new javax.swing.JButton();
         updateProjectButton = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        studentLabel = new javax.swing.JLabel();
+        addPanel = new javax.swing.JPanel();
         addNameBox = new javax.swing.JTextField();
         addAdminIdBox = new javax.swing.JTextField();
         addFemaleButton = new javax.swing.JRadioButton();
@@ -68,12 +67,12 @@ public class EditProjectForm extends javax.swing.JFrame {
         addCourseBox = new javax.swing.JTextField();
         addStudentButton = new javax.swing.JButton();
         addNewStudentLabel = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel1.setText("Projects");
+        projectLabel.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        projectLabel.setText("Projects");
 
         projectList.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         projectList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
@@ -154,10 +153,10 @@ public class EditProjectForm extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel3.setText("Students");
+        studentLabel.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        studentLabel.setText("Students");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        addPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         addNameBox.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
@@ -191,56 +190,56 @@ public class EditProjectForm extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout addPanelLayout = new javax.swing.GroupLayout(addPanel);
+        addPanel.setLayout(addPanelLayout);
+        addPanelLayout.setHorizontalGroup(
+            addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addPanelLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(addPanelLayout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(addNameLabel))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(addPanelLayout.createSequentialGroup()
+                        .addGroup(addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(addAdminIdLabel)
                             .addComponent(addCourseLabel)
                             .addComponent(addGenderLabel))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(addPanelLayout.createSequentialGroup()
                                 .addGap(41, 41, 41)
                                 .addComponent(addMaleButton)
                                 .addGap(28, 28, 28)
                                 .addComponent(addFemaleButton))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(addPanelLayout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(addAdminIdBox, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(addCourseBox, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(addNameBox, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(65, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(addStudentButton)
                 .addGap(117, 117, 117))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        addPanelLayout.setVerticalGroup(
+            addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addPanelLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addNameLabel)
                     .addComponent(addNameBox, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addAdminIdLabel)
                     .addComponent(addAdminIdBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addCourseBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addCourseLabel))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(addPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addGenderLabel)
                     .addComponent(addMaleButton)
                     .addComponent(addFemaleButton))
@@ -252,11 +251,11 @@ public class EditProjectForm extends javax.swing.JFrame {
         addNewStudentLabel.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         addNewStudentLabel.setText("Add new Student");
 
-        jButton2.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
-        jButton2.setText("Back");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        backButton.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                backButtonActionPerformed(evt);
             }
         });
 
@@ -269,9 +268,9 @@ public class EditProjectForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(136, 136, 136)
-                        .addComponent(jLabel1)
+                        .addComponent(projectLabel)
                         .addGap(223, 223, 223)
-                        .addComponent(jLabel3)
+                        .addComponent(studentLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(addNewStudentLabel)
                         .addGap(132, 132, 132))
@@ -326,10 +325,10 @@ public class EditProjectForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(addPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(52, 52, 52))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(166, 166, 166))))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(279, 279, 279)
@@ -343,8 +342,8 @@ public class EditProjectForm extends javax.swing.JFrame {
                 .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel3)
+                    .addComponent(projectLabel)
+                    .addComponent(studentLabel)
                     .addComponent(addNewStudentLabel))
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -367,7 +366,7 @@ public class EditProjectForm extends javax.swing.JFrame {
                             .addComponent(schoolBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(adminLabel)
                             .addComponent(adminBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(supervisorBox, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -380,7 +379,7 @@ public class EditProjectForm extends javax.swing.JFrame {
                     .addComponent(maleButton)
                     .addComponent(femaleButton)
                     .addComponent(updateProjectButton)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(2, 2, 2)
                 .addComponent(updateStudentButton)
                 .addGap(24, 24, 24))
@@ -390,70 +389,71 @@ public class EditProjectForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void projectListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_projectListValueChanged
-                   nameBox.setText("");
-             adminBox.setText("");
-             courseBox.setText("");    
+        nameBox.setText("");
+        adminBox.setText("");
+        courseBox.setText("");
         ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
-              String project = projectList.getSelectedValue();
-              DefaultListModel demoList = new DefaultListModel();
-        for(int i = 0 ; i < studentProject.getNumOfProjects();i++){
+        String project = projectList.getSelectedValue();
+        DefaultListModel demoList = new DefaultListModel();
+        for (int i = 0; i < studentProject.getNumOfProjects(); i++) {
             Project temp = (Project) studentProject.getProject(i);
-            try
-            {
-                if(project.equals(temp.getTitle())){
-             for(int x =0 ; x < temp.getStudentList().getNumOfStudents();x++){
-                 Student tempStud = (Student) temp.getStudentList().getStudent(x);
-                 demoList.addElement(tempStud.getName());
-             }
-             titleBox.setText(temp.getTitle());
-             schoolBox.setText(temp.getSchool());
-             supervisorBox.setText(temp.getSupervisor());
-             break;
+            try {
+                if (project.equals(temp.getTitle())) {
+                    for (int x = 0; x < temp.getStudentList().getNumOfStudents(); x++) {
+                        Student tempStud = (Student) temp.getStudentList().getStudent(x);
+                        demoList.addElement(tempStud.getName());
+                    }
+                    titleBox.setText(temp.getTitle());
+                    schoolBox.setText(temp.getSchool());
+                    supervisorBox.setText(temp.getSupervisor());
+                    break;
+                }
+            } catch (NullPointerException ex) {
             }
-            }catch(NullPointerException ex){}
         }
-             studentList.setModel(demoList);
+        studentList.setModel(demoList);
     }//GEN-LAST:event_projectListValueChanged
 
     private void studentListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_studentListValueChanged
-            String student = studentList.getSelectedValue();
-                        ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
-                  for(int i = 0 ; i < studentProject.getNumOfProjects();i++){
+        String student = studentList.getSelectedValue();
+        ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
+        for (int i = 0; i < studentProject.getNumOfProjects(); i++) {
             Project temp = (Project) studentProject.getProject(i);
-                    for(int x=0; x<temp.getStudentList().getNumOfStudents();x++){
-                         Student tempStud = (Student) temp.getStudentList().getStudent(x);
-                        try
-                        {
-            if(student.equals(tempStud.getName())){
-             nameBox.setText(tempStud.getName());
-             adminBox.setText(tempStud.getadminNum());
-             courseBox.setText(tempStud.getCourse());
-            if(tempStud.getGender() == 'M'){
-                maleButton.setSelected(true);
-            }
-            else femaleButton.setSelected(true);
-            }
-          }catch(NullPointerException ex){}
+            for (int x = 0; x < temp.getStudentList().getNumOfStudents(); x++) {
+                Student tempStud = (Student) temp.getStudentList().getStudent(x);
+                try {
+                    if (student.equals(tempStud.getName())) {
+                        nameBox.setText(tempStud.getName());
+                        adminBox.setText(tempStud.getadminNum());
+                        courseBox.setText(tempStud.getCourse());
+                        if (tempStud.getGender() == 'M') {
+                            maleButton.setSelected(true);
+                        } else {
+                            femaleButton.setSelected(true);
+                        }
                     }
+                } catch (NullPointerException ex) {
+                }
+            }
         }
     }//GEN-LAST:event_studentListValueChanged
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         EditProjectForm.this.setVisible(false);
         new ProjectFrame().setVisible(true);
         ProjectFrame.populateComboBoxes();
         ProjectFrame.resetTextFields();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_backButtonActionPerformed
 
     private void updateProjectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateProjectButtonActionPerformed
         String title = titleBox.getText();
         String school = schoolBox.getText();
         String supervisor = supervisorBox.getText();
         String selectedValue = projectList.getSelectedValue();
-                ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
-        for(int i = 0 ; i < studentProject.getNumOfProjects();i++){
+        ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
+        for (int i = 0; i < studentProject.getNumOfProjects(); i++) {
             Project temp = (Project) studentProject.getProject(i);
-            if(selectedValue.equals(temp.getTitle())){
+            if (selectedValue.equals(temp.getTitle())) {
                 temp.setSchool(school);
                 temp.setTitle(title);
                 temp.setSupervisor(supervisor);
@@ -465,25 +465,25 @@ public class EditProjectForm extends javax.swing.JFrame {
     }//GEN-LAST:event_updateProjectButtonActionPerformed
 
     private void updateStudentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateStudentButtonActionPerformed
-         String name = nameBox.getText();
+        String name = nameBox.getText();
         String admin = adminBox.getText();
         String course = courseBox.getText();
         String gender;
-        if( maleButton.isSelected()){
+        if (maleButton.isSelected()) {
             gender = maleButton.getActionCommand();
+        } else {
+            gender = femaleButton.getActionCommand();
         }
-        else gender = femaleButton.getActionCommand();
-        
+
         String selectedProjectValue = projectList.getSelectedValue();
         String selectedStudentValue = studentList.getSelectedValue();
         ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
-        for(int i = 0 ; i < studentProject.getNumOfProjects();i++){
+        for (int i = 0; i < studentProject.getNumOfProjects(); i++) {
             Project temp = (Project) studentProject.getProject(i);
-            if(selectedProjectValue.equals(temp.getTitle())){
-                for(int x=0;x<temp.getStudentList().getNumOfStudents();x++){
+            if (selectedProjectValue.equals(temp.getTitle())) {
+                for (int x = 0; x < temp.getStudentList().getNumOfStudents(); x++) {
                     Student tempStud = (Student) temp.getStudentList().getStudent(x);
-                    if(selectedStudentValue.equals(tempStud.getName()))
-                    {
+                    if (selectedStudentValue.equals(tempStud.getName())) {
                         tempStud.setName(name);
                         tempStud.setadminNum(admin);
                         tempStud.setCourse(course);
@@ -493,38 +493,38 @@ public class EditProjectForm extends javax.swing.JFrame {
                 }
             }
         }
-                resetBoxes();
+        resetBoxes();
         setupForm();
     }//GEN-LAST:event_updateStudentButtonActionPerformed
-    public void resetBoxes(){
+    public void resetBoxes() {
         titleBox.setText("");
         schoolBox.setText("");
         supervisorBox.setText("");
         nameBox.setText("");
         courseBox.setText("");
         adminBox.setText("");
-                            ButtonGroup group = new ButtonGroup();
-    group.add(maleButton);
-    group.add(femaleButton);
-    group.clearSelection();
+        ButtonGroup group = new ButtonGroup();
+        group.add(maleButton);
+        group.add(femaleButton);
+        group.clearSelection();
     }
     private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
         ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
         String selectedStudentValue = studentList.getSelectedValue();
         String selectedProjectValue = projectList.getSelectedValue();
-        for(int i = 0 ; i < studentProject.getNumOfProjects();i++){
+        for (int i = 0; i < studentProject.getNumOfProjects(); i++) {
             Project temp = (Project) studentProject.getProject(i);
-            if(selectedProjectValue.equals(temp.getTitle())){
-                for(int x=0;x<temp.getStudentList().getNumOfStudents();x++){
+            if (selectedProjectValue.equals(temp.getTitle())) {
+                for (int x = 0; x < temp.getStudentList().getNumOfStudents(); x++) {
                     Student tempStud = (Student) temp.getStudentList().getStudent(x);
-                    if(selectedStudentValue.equals(tempStud.getName()))
-                    {
+                    if (selectedStudentValue.equals(tempStud.getName())) {
                         temp.getStudentList().removeStudent(x);
                         System.out.println("done");
                         System.out.println(tempStud.getName());
                         ProjectFile.saveDesiredOutput(studentProject);
                     }
                 }
+                resetBoxes();
                 setupForm();
             }
         }
@@ -533,29 +533,36 @@ public class EditProjectForm extends javax.swing.JFrame {
     private void addStudentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addStudentButtonActionPerformed
         String selectedProjectValue = projectList.getSelectedValue();
         ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
-        if(selectedProjectValue != null){
-        String name = addNameBox.getText();
-        String admin = addAdminIdBox.getText();
-        String course = addCourseBox.getText();
-        String gender;
-                if( addMaleButton.isSelected()){
-            gender = addMaleButton.getActionCommand();
-        }
-        else gender = addFemaleButton.getActionCommand();
-        Student newStudent = new Student(admin,name,course,gender.charAt(0));
-        for(int i =0 ; i<studentProject.getNumOfProjects();i++){
-            Project temp = (Project) studentProject.getProject(i);
-            if(selectedProjectValue.equals(temp.getTitle())){
-                temp.getStudentList().addStudent(newStudent);
-                ProjectFile.saveDesiredOutput(studentProject);
+        if (selectedProjectValue != null) {
+            String name = addNameBox.getText();
+            String admin = addAdminIdBox.getText();
+            String course = addCourseBox.getText();
+            String gender;
+            if (addMaleButton.isSelected()) {
+                gender = addMaleButton.getActionCommand();
+            } else {
+                gender = addFemaleButton.getActionCommand();
             }
+            Student newStudent = new Student(admin, name, course, gender.charAt(0));
+            for (int i = 0; i < studentProject.getNumOfProjects(); i++) {
+                Project temp = (Project) studentProject.getProject(i);
+                if (selectedProjectValue.equals(temp.getTitle())) {
+                    temp.getStudentList().addStudent(newStudent);
+                    ProjectFile.saveDesiredOutput(studentProject);
+                }
+            }
+            addNameBox.setText("");
+            addAdminIdBox.setText("");
+            addCourseBox.setText("");
+            ButtonGroup group = new ButtonGroup();
+            group.add(addMaleButton);
+            group.add(addFemaleButton);
+            group.clearSelection();
+            resetBoxes();
+            setupForm();
+        } else {
+            JOptionPane.showMessageDialog(null, "Please choose a project to add this student into", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
-        
-        setupForm();
-    }
-    else {
-    JOptionPane.showMessageDialog(null, "Please choose a project to add this student into", "ERROR", JOptionPane.ERROR_MESSAGE);
-}
     }//GEN-LAST:event_addStudentButtonActionPerformed
 
     /**
@@ -569,21 +576,21 @@ public class EditProjectForm extends javax.swing.JFrame {
             }
         });
     }
-    
-    public static void setupForm(){
+
+    public static void setupForm() {
         ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
         DefaultListModel demoList = new DefaultListModel();
-        for(int i = 0 ; i < studentProject.getNumOfProjects();i++){
+        for (int i = 0; i < studentProject.getNumOfProjects(); i++) {
             Project temp = (Project) studentProject.getProject(i);
-             demoList.addElement(temp.getTitle());
+            demoList.addElement(temp.getTitle());
         }
-                    projectList.setModel(demoList);
-                    ButtonGroup group = new ButtonGroup();
-group.add(maleButton);
-group.add(femaleButton);
-ButtonGroup group2 = new ButtonGroup();
-group2.add(addMaleButton);
-group2.add(addFemaleButton);
+        projectList.setModel(demoList);
+        ButtonGroup group = new ButtonGroup();
+        group.add(maleButton);
+        group.add(femaleButton);
+        ButtonGroup group2 = new ButtonGroup();
+        group2.add(addMaleButton);
+        group2.add(addFemaleButton);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -597,27 +604,27 @@ group2.add(addFemaleButton);
     private javax.swing.JTextField addNameBox;
     private javax.swing.JLabel addNameLabel;
     private javax.swing.JLabel addNewStudentLabel;
+    private javax.swing.JPanel addPanel;
     private javax.swing.JButton addStudentButton;
     private javax.swing.JTextField adminBox;
     private javax.swing.JLabel adminLabel;
+    private javax.swing.JButton backButton;
     private java.awt.Canvas canvas1;
     private javax.swing.JTextField courseBox;
     private javax.swing.JLabel courseLabel;
     private static javax.swing.JRadioButton femaleButton;
     private javax.swing.JLabel genderLabel;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private static javax.swing.JRadioButton maleButton;
     private javax.swing.JTextField nameBox;
     private javax.swing.JLabel nameLabel;
+    private javax.swing.JLabel projectLabel;
     private static javax.swing.JList<String> projectList;
     private javax.swing.JButton removeButton;
     private javax.swing.JTextField schoolBox;
     private javax.swing.JLabel schoolLabel;
+    private javax.swing.JLabel studentLabel;
     private javax.swing.JList<String> studentList;
     private javax.swing.JTextField supervisorBox;
     private javax.swing.JLabel supervisorLabel;

@@ -23,10 +23,10 @@ public class EventCollection implements Serializable {
         EventCollection evtCollection = new EventCollection();
 
         try {
-            File f = new File("C:\\Modules files\\Year 2\\Event.dat");
+            File f = new File("C:/Users/2014p/Documents/GitHub/FYP_System/Event.dat");
             ObjectInputStream inStream = new ObjectInputStream(new FileInputStream(f));
             evtCollection = (EventCollection) inStream.readObject();
-            System.out.println(evtCollection.getNumOfEvents());
+//            System.out.println(evtCollection.getNumOfEvents());
             
             for (int i = 0; i < evtCollection.getNumOfEvents(); i++) {
                 Event evt = evtCollection.getEvent(i);
@@ -44,7 +44,7 @@ public class EventCollection implements Serializable {
     }
 
     public void writeToFile() {
-        File f = new File("C:\\Modules files\\Year 2\\Event.dat");
+        File f = new File("C:/Users/2014p/Documents/GitHub/FYP_System/Event.dat");
 
         try {
             ObjectOutputStream outStream = new ObjectOutputStream(

@@ -127,7 +127,7 @@ public class ProjectFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        sortingPane.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Sorting", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 21))); // NOI18N
+        sortingPane.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select Project", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 21))); // NOI18N
 
         searchInput.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         searchInput.addActionListener(new java.awt.event.ActionListener() {
@@ -480,49 +480,50 @@ public class ProjectFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_printButtonActionPerformed
 
     private void projectListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_projectListValueChanged
-            resetTextFields();
-        try
-            {
-        ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
-              String [] value = projectList.getSelectedValue().split(":");
-              String project = value[1].substring(1);
-              DefaultListModel demoList = new DefaultListModel();
-        for(int i = 0 ; i < studentProject.getNumOfProjects();i++){          
-            Project temp = (Project) studentProject.getProject(i);
-                if(project.equals(temp.getTitle())){
+        resetTextFields();
+        try {
+            ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
+            String[] value = projectList.getSelectedValue().split(":");
+            String project = value[1].substring(1);
+            DefaultListModel demoList = new DefaultListModel();
+            for (int i = 0; i < studentProject.getNumOfProjects(); i++) {
+                Project temp = (Project) studentProject.getProject(i);
+                if (project.equals(temp.getTitle())) {
                     projectSchoolTextField.setText(temp.getSchool());
                     projectSupervisorTextField.setText(temp.getSupervisor());
                     projectTitleTextField.setText(temp.getTitle());
-             for(int x =0 ; x < temp.getStudentList().getNumOfStudents();x++){
-                 Student tempStud = (Student) temp.getStudentList().getStudent(x);
-                 demoList.addElement(tempStud.getName());
-             }
-             break;
+                    for (int x = 0; x < temp.getStudentList().getNumOfStudents(); x++) {
+                        Student tempStud = (Student) temp.getStudentList().getStudent(x);
+                        demoList.addElement(tempStud.getName());
+                    }
+                    break;
+                }
             }
-            }
-                     studentList.setModel(demoList);
-            }catch(NullPointerException ex){}
+            studentList.setModel(demoList);
+        } catch (NullPointerException ex) {
+        }
     }//GEN-LAST:event_projectListValueChanged
 
     private void studentListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_studentListValueChanged
         String student = studentList.getSelectedValue();
         ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
-        for(int i = 0 ; i < studentProject.getNumOfProjects();i++){          
+        for (int i = 0; i < studentProject.getNumOfProjects(); i++) {
             Project temp = (Project) studentProject.getProject(i);
-            for(int x =0; x<temp.getStudentList().getNumOfStudents();x++){
-                 Student tempStud = (Student) temp.getStudentList().getStudent(x);
-            try
-            {
-                if(student.equals(tempStud.getName())){
-                    studentNameTextField.setText(tempStud.getName());
-                    studentCourseTextField.setText(tempStud.getCourse());
-                    studentAdminTextField.setText(tempStud.getadminNum());
-                    studentGenderTextField.setText(String.valueOf(tempStud.getGender()));
-                                studentPicture.setIcon(getIcon(tempStud.getadminNum().toString()));
-             break;
+            for (int x = 0; x < temp.getStudentList().getNumOfStudents(); x++) {
+                Student tempStud = (Student) temp.getStudentList().getStudent(x);
+                try {
+                    if (student.equals(tempStud.getName())) {
+                        studentNameTextField.setText(tempStud.getName());
+                        studentCourseTextField.setText(tempStud.getCourse());
+                        studentAdminTextField.setText(tempStud.getadminNum());
+                        studentGenderTextField.setText(String.valueOf(tempStud.getGender()));
+                        studentPicture.setIcon(getIcon(tempStud.getadminNum().toString()));
+                        break;
+                    }
+                } catch (NullPointerException ex) {
+                    System.out.println("Error");
+                }
             }
-            }catch(NullPointerException ex){System.out.println("Error");}
-        }
         }
     }//GEN-LAST:event_studentListValueChanged
 
@@ -531,14 +532,14 @@ public class ProjectFrame extends javax.swing.JFrame {
         ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
         String search = searchInput.getText();
         DefaultListModel demoList = new DefaultListModel();
-            for (int x = 0, num = 1; x < studentProject.getNumOfProjects(); x++) {
-                Project temp = (Project) studentProject.getProject(x);
-                if(temp.getTitle().contains(search)){
+        for (int x = 0, num = 1; x < studentProject.getNumOfProjects(); x++) {
+            Project temp = (Project) studentProject.getProject(x);
+            if (temp.getTitle().contains(search)) {
                 demoList.addElement("Project " + num + ": " + temp.getTitle());
                 num++;
-                }
             }
-             projectList.setModel(demoList);
+        }
+        projectList.setModel(demoList);
     }//GEN-LAST:event_searchInputActionPerformed
 
 //Set labels for display for each respective labels
@@ -576,8 +577,9 @@ public class ProjectFrame extends javax.swing.JFrame {
                 if (fileName.contains(substring)) //Get image with the same admin id as student
                 {
                     img = new ImageIcon("C:/Users/2014p/Documents/GitHub/FYP_System/src/img/" + fileName);
+                } else {
+                    img = new ImageIcon("C:/Users/2014p/Documents/GitHub/FYP_System/src/img/Default.png");
                 }
-                else img = new ImageIcon("C:/Users/2014p/Documents/GitHub/FYP_System/src/img/Default.png");
             }
         }
 
@@ -589,16 +591,16 @@ public class ProjectFrame extends javax.swing.JFrame {
         projectSchoolTextField.setText("");
         projectTitleTextField.setText("");
         projectSupervisorTextField.setText("");
-        
+
         //Reset Student TextFields
         studentNameTextField.setText("");
         studentAdminTextField.setText("");
         studentCourseTextField.setText("");
         studentGenderTextField.setText("");
-        
+
         //Reset Label Image
         studentPicture.setIcon(new ImageIcon("C:/Users/2014p/Documents/GitHub/FYP_System/src/img/Default.png"));
-        
+
         DefaultListModel demoList = new DefaultListModel();
         demoList.clear();
         studentList.setModel(demoList);

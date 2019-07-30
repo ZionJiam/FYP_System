@@ -9,7 +9,7 @@ public class ProjectStatisticsFrame extends javax.swing.JFrame {
     public ProjectStatisticsFrame() {
         initComponents();
         statsOutput.setText(outputProjectStatistics());
-       
+
     }
 
     /**
@@ -55,17 +55,14 @@ public class ProjectStatisticsFrame extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(statsOutput, javax.swing.GroupLayout.DEFAULT_SIZE, 651, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(statsOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(statsOutput, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(statsOutput, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE)
         );
 
         jScrollPane2.setBorder(null);
@@ -81,17 +78,17 @@ public class ProjectStatisticsFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane2)
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(257, 257, 257)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(188, 188, 188))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 545, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 604, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -111,12 +108,12 @@ public class ProjectStatisticsFrame extends javax.swing.JFrame {
         Set<String> schoolSet = new LinkedHashSet<>();
         List<String> schoolList = new ArrayList<>();
         String stats = "";
-        
-        for(int i =0; i<studentProject.getNumOfProjects();i++) {
-                Project temp = (Project) studentProject.getProject(i);
+
+        for (int i = 0; i < studentProject.getNumOfProjects(); i++) {
+            Project temp = (Project) studentProject.getProject(i);
             schoolList.add(temp.getSchool());
         }
-        
+
         // Remove duplicate using Hashset
         schoolSet.addAll(schoolList);
         schoolList.clear();
@@ -128,20 +125,20 @@ public class ProjectStatisticsFrame extends javax.swing.JFrame {
         // Count number of student
         for (int k = 0; k < schoolList.size(); k++) {
             for (int i = 0; i < studentProject.getNumOfProjects(); i++) {
-                 Project temp = (Project) studentProject.getProject(i);
+                Project temp = (Project) studentProject.getProject(i);
                 if (temp.getSchool().equals(schoolList.get(k))) {
                     countStudent[k] += 1;
                 } //if
             } //for
         } //for
-        
+
         //Count number of project
         for (int k = 0; k < schoolList.size(); k++) {
             for (int i = 0; i < studentProject.getNumOfProjects() - 1; i++) {
-                 Project temp = (Project) studentProject.getProject(i);
+                Project temp = (Project) studentProject.getProject(i);
                 if (temp.getSchool().equals(schoolList.get(k))) {
                     String projName = temp.getTitle();
-                    Project next = (Project) studentProject.getProject(i+1);
+                    Project next = (Project) studentProject.getProject(i + 1);
                     String nextproj = next.getTitle();
                     if (!(projName.equals(nextproj) && temp.getSchool().equals(next.getSchool()))) {
                         if (!(projName.equals(nextproj)) && i == studentProject.getNumOfProjects() - 2) {
