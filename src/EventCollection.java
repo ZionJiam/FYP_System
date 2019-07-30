@@ -26,7 +26,6 @@ public class EventCollection implements Serializable {
             File f = new File("C:/Users/2014p/Documents/GitHub/FYP_System/Event.dat");
             ObjectInputStream inStream = new ObjectInputStream(new FileInputStream(f));
             evtCollection = (EventCollection) inStream.readObject();
-//            System.out.println(evtCollection.getNumOfEvents());
             
             for (int i = 0; i < evtCollection.getNumOfEvents(); i++) {
                 Event evt = evtCollection.getEvent(i);
@@ -34,9 +33,8 @@ public class EventCollection implements Serializable {
             }    
             inStream.close();
         }catch(FileNotFoundException e){
-            
+            System.out.println("File not Found Exception");
         } catch (Exception ex) {
-            System.out.println("File does not exist, just create some with the program");
             ex.printStackTrace();
         }
 
