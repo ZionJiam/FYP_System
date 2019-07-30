@@ -21,7 +21,6 @@ public class EventCollection implements Serializable {
 
     public EventCollection readFromFile() {
         EventCollection evtCollection = new EventCollection();
-
         try {
             File f = new File("C:/Users/2014p/Documents/GitHub/FYP_System/Event.dat");
             ObjectInputStream inStream = new ObjectInputStream(new FileInputStream(f));
@@ -50,6 +49,8 @@ public class EventCollection implements Serializable {
             outStream.writeObject(this);
             outStream.close();
         } catch (IOException ex) {
+            ex.printStackTrace();
+        }catch(Exception ex){
             ex.printStackTrace();
         }
 

@@ -210,7 +210,7 @@ public class EventFrame extends javax.swing.JFrame {
     private void addProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProjectActionPerformed
 
         boolean emptyProject = addProjectBox.getText().isEmpty(), emptyEvent = toEventBox.getText().isEmpty();
-
+        // Validate form field
         if (!(emptyProject || emptyEvent)) {
             String event = eventList.getSelectedValue();
             String projectName = addProjectBox.getText();
@@ -243,6 +243,7 @@ public class EventFrame extends javax.swing.JFrame {
                 }
             }
         }
+        //reset
         addProjectBox.setText("");
     }//GEN-LAST:event_addProjectActionPerformed
 
@@ -303,7 +304,7 @@ public class EventFrame extends javax.swing.JFrame {
         // Save  === write to file
         evtCollection.writeToFile();
     }//GEN-LAST:event_saveEvent1ActionPerformed
-
+    // Check duplicate project in event
     private boolean IsDuplicate(Event evt, Project proj) {
         for (int i = 0; i < evt.getProjects().length; i++) {
             if (evt.getProjects()[i].getTitle().equals(proj.getTitle())) {
