@@ -112,7 +112,7 @@ public class EventFrame extends javax.swing.JFrame {
         });
 
         saveEvent1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        saveEvent1.setText("Save Events");
+        saveEvent1.setText("Save");
         saveEvent1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveEvent1ActionPerformed(evt);
@@ -209,32 +209,42 @@ public class EventFrame extends javax.swing.JFrame {
 
     private void addProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProjectActionPerformed
 
-        String projectName = addProjectBox.getText();
-        String eventTitle = toEventBox.getText();
-        Project newProject = null;
-        ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
-        // extract project object with respect to project to be added
-        for (int i = 0; i < studentProject.getNumOfProjects(); i++) {
-            Project proj = (Project) studentProject.getProject(i);
-            if (projectName.equals(proj.getTitle())) {
-                newProject = proj;
+        boolean emptyProject = addProjectBox.getText().isEmpty(), emptyEvent = toEventBox.getText().isEmpty();
+        // Validate form field
+        if (!(emptyProject || emptyEvent)) {
+            String event = eventList.getSelectedValue();
+            String projectName = addProjectBox.getText();
+            String eventTitle = toEventBox.getText();
+            Project newProject = null;
+            ProjectCollection studentProject = ProjectFile.extractProjectDataFromFile();
+            // extract project object with respect to project to be added
+            for (int i = 0; i < studentProject.getNumOfProjects(); i++) {
+                Project proj = (Project) studentProject.getProject(i);
+                if (projectName.equals(proj.getTitle())) {
+                    newProject = proj;
+                }
+            }
+            // extract event object to add the extracted project to event
+            for (int i = 0; i < evtCollection.getNumOfEvents(); i++) {
+                if (eventTitle.equals(evtCollection.getEvent(i).getEventTitle())) {
+                    if (!IsDuplicate(evtCollection.getEvent(i), newProject)) {
+                        evtCollection.getEvent(i).addProject(newProject);
+                    }
+                }
+            }
+            // Reset
+            evtDetailBox.setText("");
+            eventTitleBox.setText("");
+            // Populate eventDetails 
+            for (int i = 0; i < evtCollection.getNumOfEvents(); i++) {
+                if (evtCollection.getEvent(i).getEventTitle().equals(event)) {
+                    Event temp = evtCollection.getEvent(i);
+                    setupEventDetails(temp, 1);
+                }
             }
         }
-        // extract event object with respect to project adding to the event
-        for (int i = 0; i < evtCollection.getNumOfEvents(); i++) {
-            if (eventTitle.equals(evtCollection.getEvent(i).getEventTitle())) {
-                evtCollection.getEvent(i).addProject(newProject);
-            }
-        }
-        // Reset
-        evtDetailBox.setText("");
-        eventTitleBox.setText("");
-        // Populate eventDetails 
-        for (int i = 0; i < evtCollection.getNumOfEvents(); i++) {
-            Event temp = evtCollection.getEvent(i);
-            setupEventDetails(temp, i + 1);
-        }
-
+        //reset
+        addProjectBox.setText("");
     }//GEN-LAST:event_addProjectActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -251,11 +261,24 @@ public class EventFrame extends javax.swing.JFrame {
 
     private void eventListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_eventListValueChanged
         String event = eventList.getSelectedValue();
-        toEventBox.setText(event);
+        evtDetailBox.setText("");
+        if (eventList.getSelectedIndex() != 0) {
+            toEventBox.setText(event);
+            for (int i = 0; i < evtCollection.getNumOfEvents(); i++) {
+                if (evtCollection.getEvent(i).getEventTitle().equals(event)) {
+                    Event temp = evtCollection.getEvent(i);
+                    setupEventDetails(temp, 1);
+                }
+            }
+        } else {
+            for (int i = 0; i < evtCollection.getNumOfEvents(); i++) {
+                Event temp = evtCollection.getEvent(i);
+                setupEventDetails(temp, i + 1);
+            }
+        }
     }//GEN-LAST:event_eventListValueChanged
 
     private void registerEventActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerEventActionPerformed
-
         String evtTitle = eventTitleBox.getText();
         Project[] proj = new Project[0];
         if (!(evtTitle.equals(""))) {
@@ -266,12 +289,14 @@ public class EventFrame extends javax.swing.JFrame {
             eventTitleBox.setText("");
             // Populate event details
             DefaultListModel evtDemoList = new DefaultListModel();
+            evtDemoList.addElement("All Events");
             for (int i = 0; i < evtCollection.getNumOfEvents(); i++) {
                 Event temp = evtCollection.getEvent(i);
                 setupEventDetails(temp, i + 1);
                 evtDemoList.addElement(temp.getEventTitle());
             }
             eventList.setModel(evtDemoList);
+            eventList.setSelectedIndex(0);
         }
     }//GEN-LAST:event_registerEventActionPerformed
 
@@ -279,6 +304,15 @@ public class EventFrame extends javax.swing.JFrame {
         // Save  === write to file
         evtCollection.writeToFile();
     }//GEN-LAST:event_saveEvent1ActionPerformed
+    // Check duplicate project in event
+    private boolean IsDuplicate(Event evt, Project proj) {
+        for (int i = 0; i < evt.getProjects().length; i++) {
+            if (evt.getProjects()[i].getTitle().equals(proj.getTitle())) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public static void setupForm() {
         // Project
@@ -294,7 +328,7 @@ public class EventFrame extends javax.swing.JFrame {
         EventCollection evtCollection = new EventCollection();
         DefaultListModel evtDemoList = new DefaultListModel();
         evtCollection.readFromFile();
-
+        evtDemoList.addElement("All Events");
         // Popuate eventDetail Box
         for (int i = 0; i < evtCollection.getNumOfEvents(); i++) {
             Event temp = evtCollection.getEvent(i);
@@ -302,12 +336,13 @@ public class EventFrame extends javax.swing.JFrame {
             evtDemoList.addElement(temp.getEventTitle());
         }
         eventList.setModel(evtDemoList);
+        eventList.setSelectedIndex(0);
 
     }
 
     // populate Event detail method
     private static void setupEventDetails(Event evt, int num) {
-        String evtDetails = "Event " + num + "           " + evt.getEventTitle() + "\n";
+        String evtDetails = "Event " + num + ":           " + evt.getEventTitle() + "\n";
         String projDetails = "";
 
         if (evt.getProjects() != null) {
@@ -318,7 +353,7 @@ public class EventFrame extends javax.swing.JFrame {
                 projDetails += "  " + (i + 1) + ":  " + projTitle + "      " + projSchool + "       " + projSupervisor + "\n";
             }
         }
-        evtDetailBox.setText(evtDetailBox.getText() + (evtDetails + projDetails));
+        evtDetailBox.setText(evtDetailBox.getText() + (evtDetails + projDetails + "\n"));
     }
 
     /**
