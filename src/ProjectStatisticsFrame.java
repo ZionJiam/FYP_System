@@ -100,6 +100,8 @@ public class ProjectStatisticsFrame extends javax.swing.JFrame {
         ProjectFrame pf = new ProjectFrame();
         pf.setVisible(true);
         ProjectStatisticsFrame.this.setVisible(false);
+        ProjectFrame.populateComboBoxes();
+        ProjectFrame.resetTextFields();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public static String outputProjectStatistics() {
