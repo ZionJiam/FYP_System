@@ -25,7 +25,6 @@ public class EventCollection implements Serializable {
             File f = new File("C:/Users/2014p/Documents/GitHub/FYP_System/Event.dat");
             ObjectInputStream inStream = new ObjectInputStream(new FileInputStream(f));
             evtCollection = (EventCollection) inStream.readObject();
-            
             for (int i = 0; i < evtCollection.getNumOfEvents(); i++) {
                 Event evt = evtCollection.getEvent(i);
                 addEvent(evt);
