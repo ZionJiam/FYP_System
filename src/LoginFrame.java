@@ -26,12 +26,15 @@ public class LoginFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        FYPSystemLogo = new javax.swing.JLabel();
         Login = new javax.swing.JButton();
         password = new javax.swing.JPasswordField();
         username = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         errorMsg = new javax.swing.JLabel();
+
+        FYPSystemLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Logo.png"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -153,6 +156,7 @@ public class LoginFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel FYPSystemLogo;
     private javax.swing.JButton Login;
     private javax.swing.JLabel errorMsg;
     private javax.swing.JLabel jLabel1;

@@ -13,30 +13,31 @@ public class EventCollection implements Serializable {
 
     private int currEvent;
     private LinkList eventList;
+    private static final long serialVersionUID = 6529685098267757690L;
 
     public EventCollection() {
         currEvent = 0;
         eventList = new LinkList();
     }
 
-    public EventCollection readFromFile() {
-        EventCollection evtCollection = new EventCollection();
+    public void readFromFile() {
+        //EventCollection evtCollection = new EventCollection();
         try {
             File f = new File("C:/Users/2014p/Documents/GitHub/FYP_System/Event.dat");
             ObjectInputStream inStream = new ObjectInputStream(new FileInputStream(f));
-            evtCollection = (EventCollection) inStream.readObject();
+            EventCollection evtCollection = (EventCollection) inStream.readObject();
             for (int i = 0; i < evtCollection.getNumOfEvents(); i++) {
                 Event evt = evtCollection.getEvent(i);
                 addEvent(evt);
-            }    
+            }
             inStream.close();
-        }catch(FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             System.out.println("File not Found Exception");
         } catch (Exception ex) {
             ex.printStackTrace();
         }
 
-        return evtCollection;
+        //return evtCollection;
     }
 
     public void writeToFile() {
@@ -49,7 +50,7 @@ public class EventCollection implements Serializable {
             outStream.close();
         } catch (IOException ex) {
             ex.printStackTrace();
-        }catch(Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
 
@@ -90,5 +91,5 @@ public class EventCollection implements Serializable {
     public int getLast() {
         return eventList.getNoOfElement();
     }
-    
+
 }

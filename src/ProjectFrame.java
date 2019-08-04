@@ -433,7 +433,6 @@ public class ProjectFrame extends javax.swing.JFrame {
     private void eventButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eventButtonActionPerformed
 
         new EventFrame().setVisible(true);
-        EventFrame.setupForm();
         this.setVisible(false);
     }//GEN-LAST:event_eventButtonActionPerformed
 
