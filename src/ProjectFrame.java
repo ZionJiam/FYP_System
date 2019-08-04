@@ -69,6 +69,7 @@ public class ProjectFrame extends javax.swing.JFrame {
         projectSchoolTextField = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         studentList = new javax.swing.JList<>();
+        clearButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 102, 255));
@@ -368,6 +369,14 @@ public class ProjectFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        clearButton.setFont(new java.awt.Font("Calibri", 0, 22)); // NOI18N
+        clearButton.setText("Clear");
+        clearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -375,21 +384,24 @@ public class ProjectFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(sortingPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(projectPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(studentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(addButton)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sortingPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(addButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(eventButton)))
                         .addGap(18, 18, 18)
-                        .addComponent(eventButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(printButton, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(statButton, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(projectPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(statButton, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(printButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(clearButton)))))
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(FYPSystemPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -407,7 +419,8 @@ public class ProjectFrame extends javax.swing.JFrame {
                             .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(eventButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(statButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(printButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(printButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(27, 27, 27)
                         .addComponent(studentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(FYPSystemPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -425,7 +438,6 @@ public class ProjectFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_eventButtonActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-
         new EditProjectForm().setVisible(true);
         EditProjectForm.setupForm();
         this.setVisible(false);
@@ -448,18 +460,20 @@ public class ProjectFrame extends javax.swing.JFrame {
 
     //Print button pressed, output file created in file directory as output.txt
     private void printButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printButtonActionPerformed
-        String comboVal = "";
-        ProjectCollection projectList = null;
+        String project = "";
+        ProjectCollection ProjectList = null;
         boolean hasSelected = false;
         //Validate for no selection of project from user
-        if (schoolComboBox.getSelectedItem() != null) {
-            comboVal = schoolComboBox.getSelectedItem().toString();
-            projectList = ProjectFile.extractProjectDataFromFile();
+        if (projectList.getSelectedValue() != null) {
+             String[] value = projectList.getSelectedValue().split(":");
+             project = value[1].substring(1);
+            ProjectList = ProjectFile.extractProjectDataFromFile();
             hasSelected = true;
         }
 
         if (hasSelected) {
-            String output = ProjectFile.getOutput(projectList, comboVal);
+            String output = ProjectFile.getOutput(ProjectList, project);
+            System.out.println("Output: "+output);
             // Split each line for output to be executable
             String[] printOutput = output.split("\n"); //split method
             printOutput[0] = "Title:           " + printOutput[0];
@@ -521,7 +535,6 @@ public class ProjectFrame extends javax.swing.JFrame {
                         break;
                     }
                 } catch (NullPointerException ex) {
-                    System.out.println("Error");
                 }
             }
         }
@@ -539,8 +552,20 @@ public class ProjectFrame extends javax.swing.JFrame {
                 num++;
             }
         }
+        schoolComboBox.setSelectedIndex(0);
         projectList.setModel(demoList);
     }//GEN-LAST:event_searchInputActionPerformed
+
+    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
+        try {
+                ProjectFile.clearOutput(); //Print to output.txt, creates a file called output.txt if file not found
+                JOptionPane.showMessageDialog(null, "Successfully Cleared Output Text File", "Clear", JOptionPane.INFORMATION_MESSAGE); //Successful Message when printed
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "ERROR", "ERROR", JOptionPane.ERROR_MESSAGE);
+            } // Error Message when not printed
+        
+        
+    }//GEN-LAST:event_clearButtonActionPerformed
 
 //Set labels for display for each respective labels
     private static void setLabels(String school) {
@@ -675,6 +700,7 @@ public class ProjectFrame extends javax.swing.JFrame {
     private javax.swing.JLabel FYPSystemLogo;
     private javax.swing.JPanel FYPSystemPanel;
     private javax.swing.JButton addButton;
+    private javax.swing.JButton clearButton;
     private javax.swing.JButton eventButton;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

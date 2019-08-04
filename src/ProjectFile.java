@@ -74,19 +74,19 @@ public class ProjectFile {
     public static String getOutput(ProjectCollection projectList, String project) {
         String output = "";
         boolean change = false; //Boolean to properly format names of student
-
         for (int i = 0; i < projectList.getNumOfProjects(); i++) {
             Project temp = (Project) projectList.getProject(i);
+            for(int y=0;y<temp.getStudentList().getNumOfStudents();y++){
+            Student tempStud = (Student) temp.getStudentList().getStudent(y);
             if (temp.getTitle().equals(project) && change == false) {
-                output = temp.getTitle() + "\n" + temp.getSchool() + "\n" + temp.getSupervisor() + "\n" + temp.getStudentList().getStudent(i);
+                output = temp.getTitle() + "\n" + temp.getSchool() + "\n" + temp.getSupervisor() + "\n" + tempStud.getName();
                 change = true;
             } else if (temp.getTitle().equals(project) && change == true) {
-                for (int x = 1; i < temp.getStudentList().getNumOfStudents(); x++) {
-                    Student tempStud = (Student) temp.getStudentList().getStudent(x);
                     output += " ==> " + tempStud.getName();
-                }
+            }
             }
         }
+        System.out.println("Output from File: "+output);
 
         return output;
     }
@@ -109,6 +109,21 @@ public class ProjectFile {
             e.printStackTrace();
         }
 
+    }
+    
+    public static void clearOutput(){
+        String filePath = "C:/Users/2014p/Documents/GitHub/FYP_System/output.txt";
+        PrintWriter printWriter;
+
+        try {
+            printWriter = new PrintWriter(new FileWriter(filePath));
+
+            printWriter.flush();
+            printWriter.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void saveDesiredOutput(ProjectCollection desiredOutput) {

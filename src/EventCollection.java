@@ -90,4 +90,5 @@ public class EventCollection implements Serializable {
     public int getLast() {
         return eventList.getNoOfElement();
     }
+    
 }
