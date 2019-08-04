@@ -36,7 +36,6 @@ public class DbConnection {
                 conn.close();
                 return false;
             }
-            // Step 7: Close connection
 
         } catch (Exception e) {
             System.err.println("Error :" + e);
